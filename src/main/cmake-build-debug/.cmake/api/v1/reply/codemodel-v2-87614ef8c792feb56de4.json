@@ -49,8 +49,8 @@
 	"kind" : "codemodel",
 	"paths" : 
 	{
-		"build" : "C:/Users/gabri/Documents/GitHub/BonbonEcrase/main/cmake-build-debug",
-		"source" : "C:/Users/gabri/Documents/GitHub/BonbonEcrase/main"
+		"build" : "C:/Users/gabri/Documents/GitHub/BonbonEcrase/src/main/cmake-build-debug",
+		"source" : "C:/Users/gabri/Documents/GitHub/BonbonEcrase/src/main"
 	},
 	"version" : 
 	{

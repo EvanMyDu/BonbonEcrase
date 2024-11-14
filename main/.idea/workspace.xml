@@ -3,9 +3,9 @@
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
-  <component name="CMakePresetLoader"><![CDATA[{
-  "useNewFormat": true
-}]]></component>
+  <component name="CMakePresetLoader">{
+  &quot;useNewFormat&quot;: true
+}</component>
   <component name="CMakeProjectFlavorService">
     <option name="flavorId" value="CMakePlainProjectFlavor" />
   </component>
@@ -22,120 +22,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b20af7b3-91c3-4a4e-80ac-b4073b503234" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../include/SDL2/SDL.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../include/SDL2/SDL_assert.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../include/SDL2/SDL_atomic.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../include/SDL2/SDL_audio.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../include/SDL2/SDL_bits.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../include/SDL2/SDL_blendmode.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../include/SDL2/SDL_clipboard.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../include/SDL2/SDL_config.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../include/SDL2/SDL_copying.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../include/SDL2/SDL_cpuinfo.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../include/SDL2/SDL_egl.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../include/SDL2/SDL_endian.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../include/SDL2/SDL_error.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../include/SDL2/SDL_events.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../include/SDL2/SDL_filesystem.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../include/SDL2/SDL_gamecontroller.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../include/SDL2/SDL_gesture.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../include/SDL2/SDL_guid.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../include/SDL2/SDL_haptic.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../include/SDL2/SDL_hidapi.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../include/SDL2/SDL_hints.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../include/SDL2/SDL_joystick.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../include/SDL2/SDL_keyboard.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../include/SDL2/SDL_keycode.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../include/SDL2/SDL_loadso.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../include/SDL2/SDL_locale.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../include/SDL2/SDL_log.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../include/SDL2/SDL_main.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../include/SDL2/SDL_messagebox.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../include/SDL2/SDL_metal.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../include/SDL2/SDL_misc.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../include/SDL2/SDL_mouse.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../include/SDL2/SDL_mutex.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../include/SDL2/SDL_name.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../include/SDL2/SDL_opengl.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../include/SDL2/SDL_opengl_glext.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../include/SDL2/SDL_opengles.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../include/SDL2/SDL_opengles2.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../include/SDL2/SDL_opengles2_gl2.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../include/SDL2/SDL_opengles2_gl2ext.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../include/SDL2/SDL_opengles2_gl2platform.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../include/SDL2/SDL_opengles2_khrplatform.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../include/SDL2/SDL_pixels.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../include/SDL2/SDL_platform.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../include/SDL2/SDL_power.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../include/SDL2/SDL_quit.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../include/SDL2/SDL_rect.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../include/SDL2/SDL_render.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../include/SDL2/SDL_revision.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../include/SDL2/SDL_rwops.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../include/SDL2/SDL_scancode.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../include/SDL2/SDL_sensor.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../include/SDL2/SDL_shape.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../include/SDL2/SDL_stdinc.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../include/SDL2/SDL_surface.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../include/SDL2/SDL_system.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../include/SDL2/SDL_syswm.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../include/SDL2/SDL_test.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../include/SDL2/SDL_test_assert.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../include/SDL2/SDL_test_common.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../include/SDL2/SDL_test_compare.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../include/SDL2/SDL_test_crc32.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../include/SDL2/SDL_test_font.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../include/SDL2/SDL_test_fuzzer.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../include/SDL2/SDL_test_harness.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../include/SDL2/SDL_test_images.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../include/SDL2/SDL_test_log.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../include/SDL2/SDL_test_md5.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../include/SDL2/SDL_test_memory.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../include/SDL2/SDL_test_random.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../include/SDL2/SDL_thread.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../include/SDL2/SDL_timer.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../include/SDL2/SDL_touch.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../include/SDL2/SDL_types.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../include/SDL2/SDL_version.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../include/SDL2/SDL_video.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../include/SDL2/SDL_vulkan.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../include/SDL2/begin_code.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../include/SDL2/close_code.h" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/editor.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/main.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/CMakeLists.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/query/cache-v2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/query/cmakeFiles-v1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/query/codemodel-v2" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/query/toolchains-v1" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/cache-v2-503f2d246749353aa54d.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/cmakeFiles-v1-bb282ac0d8e74c105f3a.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/codemodel-v2-c74f13a48c964142e50c.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/directory-.-Debug-d0094a50bb2071803777.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/index-2024-11-13T14-10-56-0188.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/target-main-Debug-254ea9d6af02aa03189b.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/.cmake/api/v1/reply/toolchains-v1-cda0c955fbb914d2ef7a.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeCache.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.29.6/CMakeCCompiler.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.29.6/CMakeDetermineCompilerABI_C.bin" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.29.6/CMakeRCCompiler.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.29.6/CMakeSystem.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.29.6/CompilerIdC/CMakeCCompilerId.c" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/3.29.6/CompilerIdC/a.exe" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/CMakeConfigureLog.yaml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/TargetDirectories.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-Debug-log.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/clion-environment.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/cmake.check_cache" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/CMakeFiles/rules.ninja" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/Testing/Temporary/LastTest.log" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/build.ninja" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cmake-build-debug/cmake_install.cmake" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -155,35 +42,46 @@
     <option name="minorVersion" value="2.2" />
     <option name="productBranch" value="Classic" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 6
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6
+}</component>
   <component name="ProjectId" id="2onYxMwLUq1z9rMGZarrROGnHKL" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.RadMigrateCodeStyle": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.cidr.known.project.marker": "true",
-    "RunOnceActivity.readMode.enableVisualFormatting": "true",
-    "cf.first.check.clang-format": "false",
-    "cidr.known.project.marker": "true",
-    "git-widget-placeholder": "main",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.RadMigrateCodeStyle&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.readMode.enableVisualFormatting&quot;: &quot;true&quot;,
+    &quot;cf.first.check.clang-format&quot;: &quot;false&quot;,
+    &quot;cidr.known.project.marker&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/gabri/Documents/GitHub/BonbonEcrase/src/main/CMakeLists.txt&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\gabri\Documents\GitHub\BonbonEcrase\src" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration default="true" type="CLionExternalRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true">
       <method v="2">
         <option name="CLION.EXTERNAL.BUILD" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="main" type="CMakeRunConfiguration" factoryName="Application" REDIRECT_INPUT="false" ELEVATE="false" USE_EXTERNAL_CONSOLE="false" EMULATE_TERMINAL="false" PASS_PARENT_ENVS_2="true" PROJECT_NAME="main" TARGET_NAME="main" CONFIG_NAME="Debug" RUN_TARGET_PROJECT_NAME="main" RUN_TARGET_NAME="main">
+      <method v="2">
+        <option name="com.jetbrains.cidr.execution.CidrBuildBeforeRunTaskProvider$BuildBeforeRunTask" enabled="true" />
       </method>
     </configuration>
   </component>
@@ -195,7 +93,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1731507052860</updated>
-      <workItem from="1731507053910" duration="629000" />
+      <workItem from="1731507053910" duration="777000" />
     </task>
     <servers />
   </component>

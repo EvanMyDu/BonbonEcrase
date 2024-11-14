@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "c:/Users/gabri/Documents/GitHub/BonbonEcrase/main/cmake-build-debug"
+			"value" : "c:/Users/gabri/Documents/GitHub/BonbonEcrase/src/main/cmake-build-debug"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -431,7 +431,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/gabri/Documents/GitHub/BonbonEcrase/main/cmake-build-debug/CMakeFiles/pkgRedirects"
+			"value" : "C:/Users/gabri/Documents/GitHub/BonbonEcrase/src/main/cmake-build-debug/CMakeFiles/pkgRedirects"
 		},
 		{
 			"name" : "CMAKE_GENERATOR",
@@ -503,7 +503,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "C:/Users/gabri/Documents/GitHub/BonbonEcrase/main"
+			"value" : "C:/Users/gabri/Documents/GitHub/BonbonEcrase/src/main"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -1147,7 +1147,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/gabri/Documents/GitHub/BonbonEcrase/main/cmake-build-debug"
+			"value" : "C:/Users/gabri/Documents/GitHub/BonbonEcrase/src/main/cmake-build-debug"
 		},
 		{
 			"name" : "main_IS_TOP_LEVEL",
@@ -1171,7 +1171,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/gabri/Documents/GitHub/BonbonEcrase/main"
+			"value" : "C:/Users/gabri/Documents/GitHub/BonbonEcrase/src/main"
 		}
 	],
 	"kind" : "cache",
