@@ -1,1 +1,0 @@
-CMakeLists.txt not found in C:\Users\gabri\Documents\GitHub\BonbonEcrase\main Select CMakeLists.txt
