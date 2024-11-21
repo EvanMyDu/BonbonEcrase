@@ -55,7 +55,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "c:/Users/evanr/Desktop/BonbonEcrase/b/BonbonEcrase/main/cmake-build-debug"
+			"value" : "c:/Users/gabri/Documents/GitHub/main/cmake-build-debug"
 		},
 		{
 			"name" : "CMAKE_CACHE_MAJOR_VERSION",
@@ -431,7 +431,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/evanr/Desktop/BonbonEcrase/b/BonbonEcrase/main/cmake-build-debug/CMakeFiles/pkgRedirects"
+			"value" : "C:/Users/gabri/Documents/GitHub/main/cmake-build-debug/CMakeFiles/pkgRedirects"
 		},
 		{
 			"name" : "CMAKE_GENERATOR",
@@ -515,7 +515,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "C:/Users/evanr/Desktop/BonbonEcrase/b/BonbonEcrase/main"
+			"value" : "C:/Users/gabri/Documents/GitHub/main"
 		},
 		{
 			"name" : "CMAKE_INSTALL_PREFIX",
@@ -1147,7 +1147,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "[mingw32;-mwindows;C:/Users/evanr/Desktop/BonbonEcrase/b/BonbonEcrase/SDL2-2.30.9/x86_64-w64-mingw32/lib/libSDL2main.a;C:/Users/evanr/Desktop/BonbonEcrase/b/BonbonEcrase/SDL2-2.30.9/x86_64-w64-mingw32/lib/libSDL2.dll.a][C:/Users/evanr/Desktop/BonbonEcrase/b/BonbonEcrase/SDL2-2.30.9/x86_64-w64-mingw32/include/SDL2][v()]"
+			"value" : "[mingw32;-mwindows;C:/Users/gabri/Documents/GitHub/SDL2-2.30.9/x86_64-w64-mingw32/lib/libSDL2main.a;C:/Users/gabri/Documents/GitHub/SDL2-2.30.9/x86_64-w64-mingw32/lib/libSDL2.dll.a][C:/Users/gabri/Documents/GitHub/SDL2-2.30.9/x86_64-w64-mingw32/include/SDL2][v()]"
 		},
 		{
 			"name" : "FIND_PACKAGE_MESSAGE_DETAILS_Threads",
@@ -1183,7 +1183,7 @@
 				}
 			],
 			"type" : "FILEPATH",
-			"value" : "C:/Users/evanr/Desktop/BonbonEcrase/b/BonbonEcrase/SDL2-2.30.9/x86_64-w64-mingw32/lib/libSDL2main.a"
+			"value" : "C:/Users/gabri/Documents/GitHub/SDL2-2.30.9/x86_64-w64-mingw32/lib/libSDL2main.a"
 		},
 		{
 			"name" : "SDL2_INCLUDE_DIR",
@@ -1195,7 +1195,7 @@
 				}
 			],
 			"type" : "PATH",
-			"value" : "C:/Users/evanr/Desktop/BonbonEcrase/b/BonbonEcrase/SDL2-2.30.9/x86_64-w64-mingw32/include/SDL2"
+			"value" : "C:/Users/gabri/Documents/GitHub/SDL2-2.30.9/x86_64-w64-mingw32/include/SDL2"
 		},
 		{
 			"name" : "SDL2_LIBRARY",
@@ -1207,7 +1207,7 @@
 				}
 			],
 			"type" : "STRING",
-			"value" : "mingw32;-mwindows;C:/Users/evanr/Desktop/BonbonEcrase/b/BonbonEcrase/SDL2-2.30.9/x86_64-w64-mingw32/lib/libSDL2main.a;C:/Users/evanr/Desktop/BonbonEcrase/b/BonbonEcrase/SDL2-2.30.9/x86_64-w64-mingw32/lib/libSDL2.dll.a"
+			"value" : "mingw32;-mwindows;C:/Users/gabri/Documents/GitHub/SDL2-2.30.9/x86_64-w64-mingw32/lib/libSDL2main.a;C:/Users/gabri/Documents/GitHub/SDL2-2.30.9/x86_64-w64-mingw32/lib/libSDL2.dll.a"
 		},
 		{
 			"name" : "SDL2_LIBRARY_TEMP",
@@ -1219,7 +1219,7 @@
 				}
 			],
 			"type" : "INTERNAL",
-			"value" : "mingw32;-mwindows;C:/Users/evanr/Desktop/BonbonEcrase/b/BonbonEcrase/SDL2-2.30.9/x86_64-w64-mingw32/lib/libSDL2main.a;mingw32;-mwindows;C:/Users/evanr/Desktop/BonbonEcrase/b/BonbonEcrase/SDL2-2.30.9/x86_64-w64-mingw32/lib/libSDL2main.a;C:/Users/evanr/Desktop/BonbonEcrase/b/BonbonEcrase/SDL2-2.30.9/x86_64-w64-mingw32/lib/libSDL2.dll.a"
+			"value" : "mingw32;-mwindows;C:/Users/gabri/Documents/GitHub/SDL2-2.30.9/x86_64-w64-mingw32/lib/libSDL2main.a;C:/Users/gabri/Documents/GitHub/SDL2-2.30.9/x86_64-w64-mingw32/lib/libSDL2.dll.a"
 		},
 		{
 			"name" : "_CMAKE_LINKER_PUSHPOP_STATE_SUPPORTED",
@@ -1243,7 +1243,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/evanr/Desktop/BonbonEcrase/b/BonbonEcrase/main/cmake-build-debug"
+			"value" : "C:/Users/gabri/Documents/GitHub/main/cmake-build-debug"
 		},
 		{
 			"name" : "main_IS_TOP_LEVEL",
@@ -1267,7 +1267,7 @@
 				}
 			],
 			"type" : "STATIC",
-			"value" : "C:/Users/evanr/Desktop/BonbonEcrase/b/BonbonEcrase/main"
+			"value" : "C:/Users/gabri/Documents/GitHub/main"
 		}
 	],
 	"kind" : "cache",
