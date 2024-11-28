@@ -59,7 +59,7 @@
 			[
 				{
 					"backtrace" : 3,
-					"path" : "C:/Users/evanr/Desktop/BonbonEcrase/b/BonbonEcrase/SDL2-2.30.9/x86_64-w64-mingw32/include/SDL2"
+					"path" : "Z:/BonbonEcrase/SDL2-2.30.9/x86_64-w64-mingw32/include/SDL2"
 				}
 			],
 			"language" : "C",
@@ -102,12 +102,12 @@
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "C:\\Users\\evanr\\Desktop\\BonbonEcrase\\b\\BonbonEcrase\\SDL2-2.30.9\\x86_64-w64-mingw32\\lib\\libSDL2main.a",
+				"fragment" : "Z:\\BonbonEcrase\\SDL2-2.30.9\\x86_64-w64-mingw32\\lib\\libSDL2main.a",
 				"role" : "libraries"
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "C:\\Users\\evanr\\Desktop\\BonbonEcrase\\b\\BonbonEcrase\\SDL2-2.30.9\\x86_64-w64-mingw32\\lib\\libSDL2.dll.a",
+				"fragment" : "Z:\\BonbonEcrase\\SDL2-2.30.9\\x86_64-w64-mingw32\\lib\\libSDL2.dll.a",
 				"role" : "libraries"
 			},
 			{

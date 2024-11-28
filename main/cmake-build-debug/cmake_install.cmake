@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/evanr/Desktop/BonbonEcrase/b/BonbonEcrase/main
+# Install script for directory: Z:/BonbonEcrase/main
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -45,5 +45,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "C:/Users/evanr/Desktop/BonbonEcrase/b/BonbonEcrase/main/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "Z:/BonbonEcrase/main/cmake-build-debug/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")
