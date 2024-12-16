@@ -5,13 +5,13 @@
 #include <SDL_ttf.h>
 #include <windows.h>
 
-void AfficherImage (SDL_Renderer *renderer, char *path) {
+void AfficherImage (SDL_Renderer *renderer, char *path, int x, int y) {
     IMG_Init(IMG_INIT_JPG);
     SDL_Texture *img = IMG_LoadTexture(renderer,path);
     SDL_Rect texr;
     SDL_QueryTexture(img, NULL, NULL, &texr.w, &texr.h);
-    texr.x = (GetSystemMetrics(SM_CXSCREEN) - texr.w) / 2;
-    texr.y = (GetSystemMetrics(SM_CYSCREEN) - texr.h) / 2;
+    texr.x = x;
+    texr.y = y;
     SDL_RenderCopy(renderer, img, NULL, &texr);
 }
 
@@ -29,8 +29,9 @@ int main(int argc, char* argv[]) {
             }
         }
         SDL_RenderClear(renderer);
-        AfficherImage(renderer, "../image/adlaurent.jpg");
-        AfficherImage(renderer, "../image/jeancastex.jpeg");
+
+        AfficherImage(renderer,"../image/background.jpg", 0, 0);
+        AfficherImage(renderer, "../image/BoutonRose.png",600 ,435);
         SDL_RenderPresent(renderer);
     }
     SDL_DestroyWindow(window);
