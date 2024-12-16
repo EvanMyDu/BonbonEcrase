@@ -5,7 +5,7 @@
 #include <windows.h>
 #include "../header/ImageHandler.h"
 
-void AfficherImage (SDL_Renderer *renderer, char *path, int x, int y) {
+void AfficheImage (SDL_Renderer *renderer, char *path, int x, int y) {
     IMG_Init(IMG_INIT_JPG);
     SDL_Texture *img = IMG_LoadTexture(renderer,path);
     SDL_Rect texr;
