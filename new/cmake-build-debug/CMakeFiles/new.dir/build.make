@@ -68,11 +68,26 @@ include CMakeFiles/new.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/new.dir/flags.make
 
+CMakeFiles/new.dir/main.c.obj: CMakeFiles/new.dir/flags.make
+CMakeFiles/new.dir/main.c.obj: CMakeFiles/new.dir/includes_C.rsp
+CMakeFiles/new.dir/main.c.obj: C:/Users/gabri/Documents/GitHub/new/main.c
+CMakeFiles/new.dir/main.c.obj: CMakeFiles/new.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\gabri\Documents\GitHub\new\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/new.dir/main.c.obj"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/new.dir/main.c.obj -MF CMakeFiles\new.dir\main.c.obj.d -o CMakeFiles\new.dir\main.c.obj -c C:\Users\gabri\Documents\GitHub\new\main.c
+
+CMakeFiles/new.dir/main.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/new.dir/main.c.i"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\gabri\Documents\GitHub\new\main.c > CMakeFiles\new.dir\main.c.i
+
+CMakeFiles/new.dir/main.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/new.dir/main.c.s"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\gabri\Documents\GitHub\new\main.c -o CMakeFiles\new.dir\main.c.s
+
 CMakeFiles/new.dir/src/ImageHandler.c.obj: CMakeFiles/new.dir/flags.make
 CMakeFiles/new.dir/src/ImageHandler.c.obj: CMakeFiles/new.dir/includes_C.rsp
 CMakeFiles/new.dir/src/ImageHandler.c.obj: C:/Users/gabri/Documents/GitHub/new/src/ImageHandler.c
 CMakeFiles/new.dir/src/ImageHandler.c.obj: CMakeFiles/new.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\gabri\Documents\GitHub\new\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object CMakeFiles/new.dir/src/ImageHandler.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\gabri\Documents\GitHub\new\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/new.dir/src/ImageHandler.c.obj"
 	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/new.dir/src/ImageHandler.c.obj -MF CMakeFiles\new.dir\src\ImageHandler.c.obj.d -o CMakeFiles\new.dir\src\ImageHandler.c.obj -c C:\Users\gabri\Documents\GitHub\new\src\ImageHandler.c
 
 CMakeFiles/new.dir/src/ImageHandler.c.i: cmake_force
@@ -87,7 +102,7 @@ CMakeFiles/new.dir/src/Menu.c.obj: CMakeFiles/new.dir/flags.make
 CMakeFiles/new.dir/src/Menu.c.obj: CMakeFiles/new.dir/includes_C.rsp
 CMakeFiles/new.dir/src/Menu.c.obj: C:/Users/gabri/Documents/GitHub/new/src/Menu.c
 CMakeFiles/new.dir/src/Menu.c.obj: CMakeFiles/new.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\gabri\Documents\GitHub\new\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/new.dir/src/Menu.c.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\gabri\Documents\GitHub\new\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/new.dir/src/Menu.c.obj"
 	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/new.dir/src/Menu.c.obj -MF CMakeFiles\new.dir\src\Menu.c.obj.d -o CMakeFiles\new.dir\src\Menu.c.obj -c C:\Users\gabri\Documents\GitHub\new\src\Menu.c
 
 CMakeFiles/new.dir/src/Menu.c.i: cmake_force
@@ -98,21 +113,40 @@ CMakeFiles/new.dir/src/Menu.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/new.dir/src/Menu.c.s"
 	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\gabri\Documents\GitHub\new\src\Menu.c -o CMakeFiles\new.dir\src\Menu.c.s
 
+CMakeFiles/new.dir/src/Game.c.obj: CMakeFiles/new.dir/flags.make
+CMakeFiles/new.dir/src/Game.c.obj: CMakeFiles/new.dir/includes_C.rsp
+CMakeFiles/new.dir/src/Game.c.obj: C:/Users/gabri/Documents/GitHub/new/src/Game.c
+CMakeFiles/new.dir/src/Game.c.obj: CMakeFiles/new.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=C:\Users\gabri\Documents\GitHub\new\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building C object CMakeFiles/new.dir/src/Game.c.obj"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/new.dir/src/Game.c.obj -MF CMakeFiles\new.dir\src\Game.c.obj.d -o CMakeFiles\new.dir\src\Game.c.obj -c C:\Users\gabri\Documents\GitHub\new\src\Game.c
+
+CMakeFiles/new.dir/src/Game.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/new.dir/src/Game.c.i"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E C:\Users\gabri\Documents\GitHub\new\src\Game.c > CMakeFiles\new.dir\src\Game.c.i
+
+CMakeFiles/new.dir/src/Game.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/new.dir/src/Game.c.s"
+	C:\PROGRA~1\JETBRA~1\CLION2~1.2\bin\mingw\bin\gcc.exe $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S C:\Users\gabri\Documents\GitHub\new\src\Game.c -o CMakeFiles\new.dir\src\Game.c.s
+
 # Object files for target new
 new_OBJECTS = \
+"CMakeFiles/new.dir/main.c.obj" \
 "CMakeFiles/new.dir/src/ImageHandler.c.obj" \
-"CMakeFiles/new.dir/src/Menu.c.obj"
+"CMakeFiles/new.dir/src/Menu.c.obj" \
+"CMakeFiles/new.dir/src/Game.c.obj"
 
 # External object files for target new
 new_EXTERNAL_OBJECTS =
 
+new.exe: CMakeFiles/new.dir/main.c.obj
 new.exe: CMakeFiles/new.dir/src/ImageHandler.c.obj
 new.exe: CMakeFiles/new.dir/src/Menu.c.obj
+new.exe: CMakeFiles/new.dir/src/Game.c.obj
 new.exe: CMakeFiles/new.dir/build.make
 new.exe: CMakeFiles/new.dir/linkLibs.rsp
 new.exe: CMakeFiles/new.dir/objects1.rsp
 new.exe: CMakeFiles/new.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\gabri\Documents\GitHub\new\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C executable new.exe"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=C:\Users\gabri\Documents\GitHub\new\cmake-build-debug\CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking C executable new.exe"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles\new.dir\link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.

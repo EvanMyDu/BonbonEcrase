@@ -9,10 +9,10 @@ set(SDL2_LIB_DIR "../new/SDL2-2.30.9/x86_64-w64-mingw32/lib")
 include_directories(${SDL2_INCLUDE_DIR})
 link_directories(${SDL2_LIB_DIR})
 
-set(INCLUDES header/ImageHandler.h header/Menu.h)
-set(SOURCES src/ImageHandler.c src/Menu.c)
+set(INCLUDES header/Menu.h header/ImageHandler.h header/Game.h)
+set(SOURCES src/ImageHandler.c src/Menu.c src/Game.c)
 # Ajouter les fichiers source de votre projet
-add_executable(new ${INCLUDES} ${SOURCES})
+add_executable(new main.c ${INCLUDES} ${SOURCES})
 
 # Lier SDL2 au projet
 target_link_libraries(new SDL2 SDL2main SDL2_image SDL2_ttf)
