@@ -8,6 +8,8 @@ set(CMAKE_DEPENDS_LANGUAGES
 
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
+  "C:/Users/gabri/Documents/GitHub/new/main.c" "CMakeFiles/new.dir/main.c.obj" "gcc" "CMakeFiles/new.dir/main.c.obj.d"
+  "C:/Users/gabri/Documents/GitHub/new/src/Game.c" "CMakeFiles/new.dir/src/Game.c.obj" "gcc" "CMakeFiles/new.dir/src/Game.c.obj.d"
   "C:/Users/gabri/Documents/GitHub/new/src/ImageHandler.c" "CMakeFiles/new.dir/src/ImageHandler.c.obj" "gcc" "CMakeFiles/new.dir/src/ImageHandler.c.obj.d"
   "C:/Users/gabri/Documents/GitHub/new/src/Menu.c" "CMakeFiles/new.dir/src/Menu.c.obj" "gcc" "CMakeFiles/new.dir/src/Menu.c.obj.d"
   )

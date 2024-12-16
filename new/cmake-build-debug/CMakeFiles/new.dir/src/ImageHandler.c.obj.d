@@ -1,15 +1,6 @@
-CMakeFiles/new.dir/main.c.obj: C:\Users\gabri\Documents\GitHub\new\main.c \
- C:/Program\ Files/JetBrains/CLion\ 2024.2.2/bin/mingw/x86_64-w64-mingw32/include/stdio.h \
- C:/Program\ Files/JetBrains/CLion\ 2024.2.2/bin/mingw/x86_64-w64-mingw32/include/corecrt_stdio_config.h \
- C:/Program\ Files/JetBrains/CLion\ 2024.2.2/bin/mingw/x86_64-w64-mingw32/include/corecrt.h \
- C:/Program\ Files/JetBrains/CLion\ 2024.2.2/bin/mingw/x86_64-w64-mingw32/include/_mingw.h \
- C:/Program\ Files/JetBrains/CLion\ 2024.2.2/bin/mingw/x86_64-w64-mingw32/include/_mingw_mac.h \
- C:/Program\ Files/JetBrains/CLion\ 2024.2.2/bin/mingw/x86_64-w64-mingw32/include/_mingw_secapi.h \
- C:/Program\ Files/JetBrains/CLion\ 2024.2.2/bin/mingw/x86_64-w64-mingw32/include/vadefs.h \
- C:/Program\ Files/JetBrains/CLion\ 2024.2.2/bin/mingw/x86_64-w64-mingw32/include/sdks/_mingw_ddk.h \
- C:/Program\ Files/JetBrains/CLion\ 2024.2.2/bin/mingw/x86_64-w64-mingw32/include/_mingw_off_t.h \
- C:/Program\ Files/JetBrains/CLion\ 2024.2.2/bin/mingw/x86_64-w64-mingw32/include/swprintf.inl \
- C:/Program\ Files/JetBrains/CLion\ 2024.2.2/bin/mingw/x86_64-w64-mingw32/include/sec_api/stdio_s.h \
+CMakeFiles/new.dir/src/ImageHandler.c.obj: \
+ C:\Users\gabri\Documents\GitHub\new\src\ImageHandler.c \
+ C:/Users/gabri/Documents/GitHub/new/SDL2-2.30.9/x86_64-w64-mingw32/include/SDL2/SDL_image.h \
  C:/Users/gabri/Documents/GitHub/new/SDL2-2.30.9/x86_64-w64-mingw32/include/SDL2/SDL.h \
  C:/Users/gabri/Documents/GitHub/new/SDL2-2.30.9/x86_64-w64-mingw32/include/SDL2/SDL_main.h \
  C:/Users/gabri/Documents/GitHub/new/SDL2-2.30.9/x86_64-w64-mingw32/include/SDL2/SDL_stdinc.h \
@@ -23,6 +14,12 @@ CMakeFiles/new.dir/main.c.obj: C:\Users\gabri\Documents\GitHub\new\main.c \
  C:/Program\ Files/JetBrains/CLion\ 2024.2.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/stddef.h \
  C:/Program\ Files/JetBrains/CLion\ 2024.2.2/bin/mingw/x86_64-w64-mingw32/include/stddef.h \
  C:/Program\ Files/JetBrains/CLion\ 2024.2.2/bin/mingw/x86_64-w64-mingw32/include/crtdefs.h \
+ C:/Program\ Files/JetBrains/CLion\ 2024.2.2/bin/mingw/x86_64-w64-mingw32/include/corecrt.h \
+ C:/Program\ Files/JetBrains/CLion\ 2024.2.2/bin/mingw/x86_64-w64-mingw32/include/_mingw.h \
+ C:/Program\ Files/JetBrains/CLion\ 2024.2.2/bin/mingw/x86_64-w64-mingw32/include/_mingw_mac.h \
+ C:/Program\ Files/JetBrains/CLion\ 2024.2.2/bin/mingw/x86_64-w64-mingw32/include/_mingw_secapi.h \
+ C:/Program\ Files/JetBrains/CLion\ 2024.2.2/bin/mingw/x86_64-w64-mingw32/include/vadefs.h \
+ C:/Program\ Files/JetBrains/CLion\ 2024.2.2/bin/mingw/x86_64-w64-mingw32/include/sdks/_mingw_ddk.h \
  C:/Program\ Files/JetBrains/CLion\ 2024.2.2/bin/mingw/lib/gcc/x86_64-w64-mingw32/13.1.0/include/stdarg.h \
  C:/Program\ Files/JetBrains/CLion\ 2024.2.2/bin/mingw/x86_64-w64-mingw32/include/stdarg.h \
  C:/Program\ Files/JetBrains/CLion\ 2024.2.2/bin/mingw/x86_64-w64-mingw32/include/_mingw_stdarg.h \
@@ -38,6 +35,7 @@ CMakeFiles/new.dir/main.c.obj: C:\Users\gabri\Documents\GitHub\new\main.c \
  C:/Program\ Files/JetBrains/CLion\ 2024.2.2/bin/mingw/x86_64-w64-mingw32/include/process.h \
  C:/Program\ Files/JetBrains/CLion\ 2024.2.2/bin/mingw/x86_64-w64-mingw32/include/corecrt_startup.h \
  C:/Program\ Files/JetBrains/CLion\ 2024.2.2/bin/mingw/x86_64-w64-mingw32/include/sys/types.h \
+ C:/Program\ Files/JetBrains/CLion\ 2024.2.2/bin/mingw/x86_64-w64-mingw32/include/_mingw_off_t.h \
  C:/Users/gabri/Documents/GitHub/new/SDL2-2.30.9/x86_64-w64-mingw32/include/SDL2/SDL_rwops.h \
  C:/Users/gabri/Documents/GitHub/new/SDL2-2.30.9/x86_64-w64-mingw32/include/SDL2/SDL_clipboard.h \
  C:/Users/gabri/Documents/GitHub/new/SDL2-2.30.9/x86_64-w64-mingw32/include/SDL2/SDL_cpuinfo.h \
@@ -185,9 +183,12 @@ CMakeFiles/new.dir/main.c.obj: C:\Users\gabri\Documents\GitHub\new\main.c \
  C:/Users/gabri/Documents/GitHub/new/SDL2-2.30.9/x86_64-w64-mingw32/include/SDL2/SDL_version.h \
  C:/Users/gabri/Documents/GitHub/new/SDL2-2.30.9/x86_64-w64-mingw32/include/SDL2/SDL_locale.h \
  C:/Users/gabri/Documents/GitHub/new/SDL2-2.30.9/x86_64-w64-mingw32/include/SDL2/SDL_misc.h \
- C:/Users/gabri/Documents/GitHub/new/SDL2-2.30.9/x86_64-w64-mingw32/include/SDL2/SDL_image.h \
- C:/Users/gabri/Documents/GitHub/new/SDL2-2.30.9/x86_64-w64-mingw32/include/SDL2/SDL.h \
- C:/Users/gabri/Documents/GitHub/new/SDL2-2.30.9/x86_64-w64-mingw32/include/SDL2/SDL_ttf.h \
+ C:/Users/gabri/Documents/GitHub/new/SDL2-2.30.9/x86_64-w64-mingw32/include/SDL2/SDL_rect.h \
+ C:/Users/gabri/Documents/GitHub/new/SDL2-2.30.9/x86_64-w64-mingw32/include/SDL2/SDL_render.h \
+ C:/Program\ Files/JetBrains/CLion\ 2024.2.2/bin/mingw/x86_64-w64-mingw32/include/stdio.h \
+ C:/Program\ Files/JetBrains/CLion\ 2024.2.2/bin/mingw/x86_64-w64-mingw32/include/corecrt_stdio_config.h \
+ C:/Program\ Files/JetBrains/CLion\ 2024.2.2/bin/mingw/x86_64-w64-mingw32/include/swprintf.inl \
+ C:/Program\ Files/JetBrains/CLion\ 2024.2.2/bin/mingw/x86_64-w64-mingw32/include/sec_api/stdio_s.h \
  C:/Program\ Files/JetBrains/CLion\ 2024.2.2/bin/mingw/x86_64-w64-mingw32/include/windows.h \
  C:/Program\ Files/JetBrains/CLion\ 2024.2.2/bin/mingw/x86_64-w64-mingw32/include/excpt.h \
  C:/Program\ Files/JetBrains/CLion\ 2024.2.2/bin/mingw/x86_64-w64-mingw32/include/windef.h \
@@ -331,4 +332,4 @@ CMakeFiles/new.dir/main.c.obj: C:\Users\gabri\Documents\GitHub\new\main.c \
  C:/Program\ Files/JetBrains/CLion\ 2024.2.2/bin/mingw/x86_64-w64-mingw32/include/winsvc.h \
  C:/Program\ Files/JetBrains/CLion\ 2024.2.2/bin/mingw/x86_64-w64-mingw32/include/mcx.h \
  C:/Program\ Files/JetBrains/CLion\ 2024.2.2/bin/mingw/x86_64-w64-mingw32/include/imm.h \
- C:\Users\gabri\Documents\GitHub\new\header/ImageHandler.h
+ C:/Users/gabri/Documents/GitHub/new/header/ImageHandler.h

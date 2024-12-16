@@ -128,6 +128,54 @@ new/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\new.dir\build.make CMakeFiles/new.dir/build
 .PHONY : new/fast
 
+main.obj: main.c.obj
+.PHONY : main.obj
+
+# target to build an object file
+main.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\new.dir\build.make CMakeFiles/new.dir/main.c.obj
+.PHONY : main.c.obj
+
+main.i: main.c.i
+.PHONY : main.i
+
+# target to preprocess a source file
+main.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\new.dir\build.make CMakeFiles/new.dir/main.c.i
+.PHONY : main.c.i
+
+main.s: main.c.s
+.PHONY : main.s
+
+# target to generate assembly for a file
+main.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\new.dir\build.make CMakeFiles/new.dir/main.c.s
+.PHONY : main.c.s
+
+src/Game.obj: src/Game.c.obj
+.PHONY : src/Game.obj
+
+# target to build an object file
+src/Game.c.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\new.dir\build.make CMakeFiles/new.dir/src/Game.c.obj
+.PHONY : src/Game.c.obj
+
+src/Game.i: src/Game.c.i
+.PHONY : src/Game.i
+
+# target to preprocess a source file
+src/Game.c.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\new.dir\build.make CMakeFiles/new.dir/src/Game.c.i
+.PHONY : src/Game.c.i
+
+src/Game.s: src/Game.c.s
+.PHONY : src/Game.s
+
+# target to generate assembly for a file
+src/Game.c.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\new.dir\build.make CMakeFiles/new.dir/src/Game.c.s
+.PHONY : src/Game.c.s
+
 src/ImageHandler.obj: src/ImageHandler.c.obj
 .PHONY : src/ImageHandler.obj
 
@@ -185,6 +233,12 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... new
+	@echo ... main.obj
+	@echo ... main.i
+	@echo ... main.s
+	@echo ... src/Game.obj
+	@echo ... src/Game.i
+	@echo ... src/Game.s
 	@echo ... src/ImageHandler.obj
 	@echo ... src/ImageHandler.i
 	@echo ... src/ImageHandler.s
