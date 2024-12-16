@@ -1,0 +1,1 @@
+  -L"C:/Users/gabri/Documents/GitHub/new/../new/SDL2-2.30.9/x86_64-w64-mingw32/lib"  -lSDL2 -lSDL2main -lSDL2_image -lSDL2_ttf -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32 
