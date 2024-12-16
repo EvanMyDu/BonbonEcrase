@@ -4,16 +4,7 @@
 #include <SDL_image.h>
 #include <SDL_ttf.h>
 #include <windows.h>
-
-void AfficherImage (SDL_Renderer *renderer, char *path, int x, int y) {
-    IMG_Init(IMG_INIT_JPG);
-    SDL_Texture *img = IMG_LoadTexture(renderer,path);
-    SDL_Rect texr;
-    SDL_QueryTexture(img, NULL, NULL, &texr.w, &texr.h);
-    texr.x = x;
-    texr.y = y;
-    SDL_RenderCopy(renderer, img, NULL, &texr);
-}
+#include "header/ImageHandler.h"
 
 int main(int argc, char* argv[]) {
     SDL_Init(SDL_INIT_EVERYTHING);
@@ -30,8 +21,8 @@ int main(int argc, char* argv[]) {
         }
         SDL_RenderClear(renderer);
 
-        AfficherImage(renderer,"../image/background.jpg", 0, 0);
-        AfficherImage(renderer, "../image/BoutonRose.png",600 ,435);
+        AfficheImage(renderer,"../image/background.jpg", 0, 0);
+        AfficheImage(renderer, "../image/BoutonRose.png",600 ,435);
         SDL_RenderPresent(renderer);
     }
     SDL_DestroyWindow(window);
