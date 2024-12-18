@@ -23,28 +23,28 @@ void game_loop() {
     int jeu = 0;
     SDL_bool run = SDL_TRUE;
     while(run){
-        SDL_GetMouseState(&x, &y);
-        SDL_Point souris = {x, y};
         SDL_Event event;
         while (SDL_PollEvent(&event)) {
             if (event.type == SDL_QUIT)
             {
                 run = SDL_FALSE;
             }
-            if (menu == 1) {
-                if ((event.type == SDL_MOUSEBUTTONDOWN) && (CheckAllRectMenu(renderer) == 1)) {
-                    jeu = 1;
-                    menu = 0;
-                }
+            if ((event.type == SDL_MOUSEBUTTONDOWN) && (CheckAllRectMenu(renderer) == 1)) {
+                menu = GetButtonPurposeMenu(renderer);
+            }
+            if ((event.type == SDL_MOUSEBUTTONDOWN) && (CheckAllRectGame(renderer) == 1)) {
+                menu = GetButtonPurposeGame(renderer);
             }
         }
         if (menu == 1) {
             ActualiserFenetreMenu(renderer);
         }
+        if (menu == 0) {
+            jeu = 1;
+        }
         if (jeu == 1) {
             ActualiserFenetreJeu(renderer);
         }
-        printf("x = %d y = %d\n", x, y);
     }
     SDL_Quit();
 }

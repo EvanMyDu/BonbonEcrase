@@ -34,18 +34,31 @@ int MouseInRect(SDL_Rect rect) {
     }
 }
 
-void GetButtonPurposeMenu(int i) {
-    for (int i = 0; i < 3; i++) {
+int GetButtonPurposeMenu(SDL_Renderer *renderer) {
+    for (int i = 0; i < 18; i++) {
         if (MouseInRect(buttons_menu[i]) == 1) {
+            if (i == 0) {
+                ActualiserFenetreJeu(renderer);
+                return 0;
+            }
+            if (i == 1) {
+                ActualiserFenetreChoixGrille(renderer);
+                return 1;
+            }
             if (i == 2) {
                 SDL_Quit();
             }
         }
-        SDL_Quit();
     }
+    SDL_Quit();
+    return 0;
 }
 
-void GetButtonPurposeGame(int i) {
+
+int GetButtonPurposeGame(SDL_Renderer *renderer) {
+    for (int i = 0; i < 72; i++) {
+    }
+    return 0;
 }
 
 int CheckAllRectMenu() {
@@ -57,7 +70,7 @@ int CheckAllRectMenu() {
     return 0;
 }
 
-int CheckAllRectGame() {
+int CheckAllRectGame(){
     for (int i = 0; i < 3; i++) {
         if (MouseInRect(buttons_game[i]) == 1) {
             return 1;

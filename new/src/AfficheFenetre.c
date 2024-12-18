@@ -21,7 +21,7 @@ void ActualiserFenetreMenu(SDL_Renderer *renderer) {
     SDL_Texture *background = AfficheImage(renderer,"../image/background.png", 0, 0), *bouton = AfficheImage(renderer, "../image/playbouton.png",xplay ,yplay), *titre = AfficheImage(renderer, "../image/titre.png",xtitre ,ytitre), *scorebouton = AfficheImage(renderer, "../image/scorebouton.png", xscore, yscore), *quitter = AfficheImage(renderer, "../image/quitterbouton.png", xquitter, yquitter);
     CreerBoutonMenu(renderer, xplay, yplay,294, 84, 0);
     CreerBoutonMenu(renderer, xplay, yscore,294, 84, 1);
-    CreerBoutonMenu(renderer, xquitter, yquitter,294, 84, 1);
+    CreerBoutonMenu(renderer, xquitter, yquitter,294, 84, 2);
     SDL_RenderPresent(renderer);
     SDL_DestroyTexture(bouton);
     SDL_DestroyTexture(background);
