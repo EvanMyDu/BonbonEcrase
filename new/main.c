@@ -4,8 +4,7 @@
 #include <windows.h>
 #include "header/AfficheFenetre.h"
 
-
-int main(int argc, char* argv[]) {
+void main(int argc, char* argv[]) {
     SDL_Init(SDL_INIT_EVERYTHING);
     SDL_Renderer *renderer;
     SDL_bool run = SDL_TRUE;
@@ -21,5 +20,4 @@ int main(int argc, char* argv[]) {
         ActualiserFenetreMenu(renderer);
     }
     SDL_Quit();
-    return 0;
 }
