@@ -7,6 +7,7 @@
 
 SDL_Texture* AfficheImage (SDL_Renderer *renderer, char *path, int x, int y) {
     IMG_Init(IMG_INIT_JPG);
+    IMG_Init(IMG_INIT_PNG);
     SDL_Texture *img = IMG_LoadTexture(renderer,path);
     SDL_Rect texr;
     SDL_QueryTexture(img, NULL, NULL, &texr.w, &texr.h);

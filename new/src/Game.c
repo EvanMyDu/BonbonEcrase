@@ -44,6 +44,7 @@ void game_loop() {
         if (jeu == 1) {
             ActualiserFenetreJeu(renderer);
         }
+        printf("x = %d y = %d\n", x, y);
     }
     SDL_Quit();
 }
