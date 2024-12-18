@@ -34,19 +34,18 @@ int MouseInRect(SDL_Rect rect) {
     }
 }
 
-void GetButtonPurposeMenu(int i, SDL_Renderer *renderer) {
+void GetButtonPurposeMenu(int i) {
     if (i == 2) {
         SDL_Quit();
     }
 }
 
-void GetButtonPurposeGame(int i, SDL_Renderer *renderer) {
+void GetButtonPurposeGame(int i) {
 }
 
 int CheckAllRectMenu() {
     for (int i = 0; i < 3; i++) {
         if (MouseInRect(buttons_menu[i]) == 1) {
-            GetButtonPurposeMenu(i);
             return 1;
         }
     }
@@ -56,7 +55,6 @@ int CheckAllRectMenu() {
 int CheckAllRectGame() {
     for (int i = 0; i < 3; i++) {
         if (MouseInRect(buttons_game[i]) == 1) {
-            GetButtonPurposeGame(i);
             return 1;
         }
     }

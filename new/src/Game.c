@@ -32,7 +32,7 @@ void game_loop() {
                 run = SDL_FALSE;
             }
             if (menu == 1) {
-                if ((event.type == SDL_MOUSEBUTTONDOWN) && (CheckAllRectMenu() == 1)) {
+                if ((event.type == SDL_MOUSEBUTTONDOWN) && (CheckAllRectMenu(renderer) == 1)) {
                     jeu = 1;
                     menu = 0;
                 }
