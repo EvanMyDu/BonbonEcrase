@@ -13,14 +13,16 @@ SDL_Renderer* AfficheFenetre() {
 }
 
 void ActualiserFenetreMenu(SDL_Renderer *renderer) {
+    int xplay = GetSystemMetrics(SM_CXSCREEN)/2-360, yplay = GetSystemMetrics(SM_CYSCREEN)/2 - 105; ;
     SDL_RenderClear(renderer);
     AfficheImage(renderer,"../image/background.jpg", 0, 0);
-    AfficheImage(renderer, "../image/BoutonRose.png",600 ,435);
-    CreerBouton(renderer, 50, 50, 721, 211);
+    AfficheImage(renderer, "../image/BoutonRose.png",xplay ,yplay);
+    CreerBouton(renderer, 50, 50, 721, 211, 1);
     SDL_RenderPresent(renderer);
 }
 
 void ActualiserFenetreJeu(SDL_Renderer *renderer) {
     SDL_RenderClear(renderer);
+    AfficheImage(renderer, "../image/adlaurent.jpg",600 ,435);
     SDL_RenderPresent(renderer);
 }
