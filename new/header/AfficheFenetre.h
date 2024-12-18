@@ -7,7 +7,9 @@
 
 SDL_Renderer* AfficheFenetre();
 void ActualiserFenetreMenu(SDL_Renderer *renderer);
+void ActualiserFenetreChoixGrille(SDL_Renderer *renderer);
 void ActualiserFenetreJeu(SDL_Renderer *renderer);
+
 #endif //AFFICHEFENETRE_H
 
 

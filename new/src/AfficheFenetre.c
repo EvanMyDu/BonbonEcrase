@@ -17,8 +17,12 @@ void ActualiserFenetreMenu(SDL_Renderer *renderer) {
     SDL_RenderClear(renderer);
     AfficheImage(renderer,"../image/background.jpg", 0, 0);
     AfficheImage(renderer, "../image/BoutonRose.png",xplay ,yplay);
-    CreerBouton(renderer, 50, 50, xplay, yplay, 0);
+    CreerBoutonMenu(renderer, xplay, yplay,721, 211, 0);
     SDL_RenderPresent(renderer);
+}
+
+void ActualiserFenetreChoixGrille(SDL_Renderer *renderer) {
+
 }
 
 void ActualiserFenetreJeu(SDL_Renderer *renderer) {

@@ -31,9 +31,11 @@ void game_loop() {
             {
                 run = SDL_FALSE;
             }
-            if ((event.type == SDL_MOUSEBUTTONDOWN) && (CheckAllRect() == 1)) {
-                jeu = 1;
-                menu = 0;
+            if (menu == 1) {
+                if ((event.type == SDL_MOUSEBUTTONDOWN) && (CheckAllRectMenu() == 1)) {
+                    jeu = 1;
+                    menu = 0;
+                }
             }
         }
         if (menu == 1) {
