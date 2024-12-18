@@ -5,7 +5,8 @@
 #include "header/AfficheFenetre.h"
 
 
-int main(int argc, char* argv[]) {
+void main(int argc, char* argv[]) {
+    int x, y;
     SDL_Init(SDL_INIT_EVERYTHING);
     SDL_Renderer *renderer;
     SDL_bool run = SDL_TRUE;
@@ -17,9 +18,14 @@ int main(int argc, char* argv[]) {
             {
                 run = SDL_FALSE;
             }
+            if (event.type == SDL_MOUSEMOTION) {
+                x = event.motion.x;
+                y = event.motion.y;
+
+            }
         }
+        printf("x = %d, y = %d\n", x, y);
         ActualiserFenetreMenu(renderer);
     }
     SDL_Quit();
-    return 0;
 }

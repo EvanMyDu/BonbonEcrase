@@ -4,6 +4,7 @@
 #include <windows.h>
 #include "../header/AfficheFenetre.h"
 #include "../header/ImageHandler.h"
+#include "../header/Button.h"
 
 SDL_Renderer* AfficheFenetre() {
     SDL_Window *window = SDL_CreateWindow("Hello World", SDL_WINDOWPOS_UNDEFINED, 35, GetSystemMetrics(SM_CXSCREEN), GetSystemMetrics(SM_CYSCREEN) - 30, SDL_WINDOW_OPENGL);
@@ -15,6 +16,7 @@ void ActualiserFenetreMenu(SDL_Renderer *renderer) {
     SDL_RenderClear(renderer);
     AfficheImage(renderer,"../image/background.jpg", 0, 0);
     AfficheImage(renderer, "../image/BoutonRose.png",600 ,435);
+    CreerBouton(renderer, 50, 50, 721, 211);
     SDL_RenderPresent(renderer);
 }
 
