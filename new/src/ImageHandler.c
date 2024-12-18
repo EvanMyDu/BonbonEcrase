@@ -5,12 +5,13 @@
 #include <windows.h>
 #include "../header/ImageHandler.h"
 
-void AfficheImage (SDL_Renderer *renderer, char *path, int x, int y) {
+SDL_Texture* AfficheImage (SDL_Renderer *renderer, char *path, int x, int y) {
     IMG_Init(IMG_INIT_JPG);
     SDL_Texture *img = IMG_LoadTexture(renderer,path);
     SDL_Rect texr;
     SDL_QueryTexture(img, NULL, NULL, &texr.w, &texr.h);
-    texr.x = (GetSystemMetrics(SM_CXSCREEN) - texr.w) / 2;
-    texr.y = (GetSystemMetrics(SM_CYSCREEN) - texr.h) / 2;
+    texr.x = x;
+    texr.y = y;
     SDL_RenderCopy(renderer, img, NULL, &texr);
+    return img;
 }

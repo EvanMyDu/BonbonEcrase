@@ -14,11 +14,14 @@ SDL_Renderer* AfficheFenetre() {
 
 void ActualiserFenetreMenu(SDL_Renderer *renderer) {
     int xplay = GetSystemMetrics(SM_CXSCREEN)/2-360, yplay = GetSystemMetrics(SM_CYSCREEN)/2 - 105; ;
+    SDL_Texture* background, *bouton;
     SDL_RenderClear(renderer);
-    AfficheImage(renderer,"../image/background.jpg", 0, 0);
-    AfficheImage(renderer, "../image/BoutonRose.png",xplay ,yplay);
+    background = AfficheImage(renderer,"../image/background.jpg", 0, 0);
+    bouton = AfficheImage(renderer, "../image/BoutonRose.png",xplay ,yplay);
     CreerBoutonMenu(renderer, xplay, yplay,721, 211, 0);
     SDL_RenderPresent(renderer);
+    SDL_DestroyTexture(bouton);
+    SDL_DestroyTexture(background);
 }
 
 void ActualiserFenetreChoixGrille(SDL_Renderer *renderer) {

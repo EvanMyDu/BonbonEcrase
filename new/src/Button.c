@@ -5,7 +5,7 @@
 #include "../header/Button.h"
 #include "../header/AfficheFenetre.h"
 
-static SDL_Rect buttons_menu[3];
+static SDL_Rect buttons_menu[18];
 static SDL_Rect buttons_game[72];
 
 void enregistrer_boutton(SDL_Rect tab[], SDL_Rect rect, int rang) {
@@ -35,7 +35,12 @@ int MouseInRect(SDL_Rect rect) {
 }
 
 void GetButtonPurposeMenu(int i) {
-    if (i == 2) {
+    for (int i = 0; i < 3; i++) {
+        if (MouseInRect(buttons_menu[i]) == 1) {
+            if (i == 2) {
+                SDL_Quit();
+            }
+        }
         SDL_Quit();
     }
 }
