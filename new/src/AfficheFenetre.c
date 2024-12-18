@@ -17,7 +17,7 @@ void ActualiserFenetreMenu(SDL_Renderer *renderer) {
     SDL_RenderClear(renderer);
     AfficheImage(renderer,"../image/background.jpg", 0, 0);
     AfficheImage(renderer, "../image/BoutonRose.png",xplay ,yplay);
-    CreerBouton(renderer, 50, 50, 721, 211, 1);
+    CreerBouton(renderer, 50, 50, xplay, yplay, 0);
     SDL_RenderPresent(renderer);
 }
 

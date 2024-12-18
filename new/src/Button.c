@@ -28,9 +28,9 @@ int MouseInRect(SDL_Rect rect) {
 }
 
 int CheckAllRect() {
-    for (int i = 1; i < 3; i++) {
+    for (int i = 0; i < 3; i++) {
         if (MouseInRect(bouttons[i]) == 1) {
-            return i;
+            return 1;
         }
     }
     return 0;
