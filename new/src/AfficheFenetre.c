@@ -39,5 +39,5 @@ void ActualiserFenetreJeu(SDL_Renderer *renderer) {
     SDL_RenderClear(renderer);
     SDL_Texture *adlaurent = AfficheImage(renderer, "../image/adlaurent.jpg",600 ,435);
     SDL_RenderPresent(renderer);
-    SDL_DestroyTexture(adlaurent)
+    SDL_DestroyTexture(adlaurent);
 }

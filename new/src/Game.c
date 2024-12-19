@@ -28,8 +28,11 @@ void game_loop() {
             {
                 run = SDL_FALSE;
             }
-            if ((event.type == SDL_MOUSEBUTTONDOWN) && (CheckAllRectMenu(renderer) == 1)) { //Regarde si le clic-gauche de la souris est pressé et que la souris se trouve dans un rectangle du menu
-                menu = GetButtonPurposeMenu(renderer); //Détermine quel bouton a été cliqué et modifie la valeur de menu en fonction de la fonction du bouton
+            if (menu == 1) {
+                if ((event.type == SDL_MOUSEBUTTONDOWN) && (CheckAllRectMenu(renderer) == 1)) { //Regarde si le clic-gauche de la souris est pressé et que la souris se trouve dans un rectangle du menu
+                    menu = GetButtonPurposeMenu(renderer); //Détermine quel bouton a été cliqué et modifie la valeur de menu en fonction de la fonction du bouton
+                }
+
             }
             if ((event.type == SDL_MOUSEBUTTONDOWN) && (CheckAllRectGame(renderer) == 1)) { //Regarde si le clic-gauche de la souris est pressé et que la souris se trouve dans un rectangle du jeu
                 jeu = GetButtonPurposeGame(renderer);
