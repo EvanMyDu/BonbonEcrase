@@ -31,6 +31,10 @@ void ActualiserFenetreMenu(SDL_Renderer *renderer) {
     SDL_DestroyTexture(scorebouton); //Libère la mémoire en detruisant la texture
 }
 
+void ActualiserFenetreChoixMode(SDL_Renderer *renderer) {
+
+}
+
 void ActualiserFenetreChoixGrille(SDL_Renderer *renderer) {
 
 }

@@ -39,7 +39,7 @@ int GetButtonPurposeMenu(SDL_Renderer *renderer) {
         if (MouseInRect(buttons_menu[i]) == 1) { //regarde quel bouton est cliqué
             if (i == 0) { //i == 0 est l'indice du bouton play
                 ActualiserFenetreJeu(renderer);
-                return 0;
+                return 2;
             }
             if (i == 1) {
                 ActualiserFenetreChoixGrille(renderer);
