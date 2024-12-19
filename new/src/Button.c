@@ -38,19 +38,19 @@ int GetButtonPurposeMenu(SDL_Renderer *renderer) {
     for (int i = 0; i < 18; i++) { //
         if (MouseInRect(buttons_menu[i]) == 1) { //regarde quel bouton est cliqué
             if (i == 0) { //i == 0 est l'indice du bouton play
-                ActualiserFenetreJeu(renderer);
-                return 2;
+                return 0;
             }
-            if (i == 1) {
-                ActualiserFenetreChoixGrille(renderer);
+            if (i == 1) {//i  == 1 est l'indice du score
                 return 1;
             }
-            if (i == 2) {
+            if (i == 2) {//i == 2 est l'indice pour quitter
                 SDL_Quit();
+                exit(EXIT_SUCCESS);
             }
         }
     }
     SDL_Quit();
+    exit(EXIT_SUCCESS);
     return 0;
 }
 

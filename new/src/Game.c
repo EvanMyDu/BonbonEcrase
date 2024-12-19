@@ -42,11 +42,12 @@ void game_loop() {
             ActualiserFenetreMenu(renderer); //Affiche le menu
         }
         if (menu == 0) { //Si on est plus dans le menu
-            jeu = 1; //Lance le jeu
+            ActualiserFenetreChoixMode(renderer);
         }
         if (jeu == 1) { //Si on est dans le jeu
             ActualiserFenetreJeu(renderer); //Affiche le jeu
         }
     }
     SDL_Quit(); //Si la boucle de jeu s'arrête on quitte SDL
+    exit(EXIT_SUCCESS);
 }

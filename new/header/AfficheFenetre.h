@@ -6,7 +6,7 @@
 #define AFFICHEFENETRE_H
 
 SDL_Renderer* AfficheFenetre();
-void ActualiserFenetreChoixMode(SDL_Renderer *renderer)
+void ActualiserFenetreChoixMode(SDL_Renderer *renderer);
 void ActualiserFenetreMenu(SDL_Renderer *renderer);
 void ActualiserFenetreChoixGrille(SDL_Renderer *renderer);
 void ActualiserFenetreJeu(SDL_Renderer *renderer);
