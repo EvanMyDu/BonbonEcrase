@@ -50,28 +50,27 @@ void ActualiserFenetreChoixMode(SDL_Renderer *renderer) {
 }
 
 void ActualiserFenetreChoixGrille(SDL_Renderer *renderer) {
-    char* str[15];
-    int a = 110, b = 90;
-    SDL_RenderClear(renderer); //Enlève les éléments afficher à l'instant t
-    SDL_Texture *background = AfficheImage(renderer,"../image/background.png", 0, 0);
-    for (int i=0; i<15; i++) {
-        sprintf(str, "../image/%d.png", i);
-        if ((i%4 == 0) && (i != 0)) {
-            a = 110;
-            b = b + 300;
-            SDL_Texture *grille = AfficheImage(renderer, str, a,b);
-            SDL_DestroyTexture(grille);
+    char str[30]; // Taille suffisante pour contenir "../image/XX.png"
+    int a = 110, b = 90; // Position initiale des boutons
+    SDL_RenderClear(renderer); // Enlève les éléments affichés à l'instant t
+    SDL_Texture *background = AfficheImage(renderer, "../image/background.png", 0, 0);
 
+    for (int i = 0; i < 15; i++) {
+        sprintf(str, "../image/%d.png", i);
+        if (i % 5 == 0 && i != 0) {
+            a = 110;
+            b += 300;
+        } else if (i % 5 != 0) {
+            a += 340;
         }
-        else {
-            a = a + 340;
-            SDL_Texture *grille = AfficheImage(renderer, str,a, b);
-            SDL_DestroyTexture(grille);
-        }
+        SDL_Texture *grille = AfficheImage(renderer, str, a, b);
+        SDL_DestroyTexture(grille);
     }
+
     SDL_RenderPresent(renderer);
     SDL_DestroyTexture(background);
 }
+
 
 void ActualiserFenetreJeu(SDL_Renderer *renderer) {
     SDL_RenderClear(renderer);
