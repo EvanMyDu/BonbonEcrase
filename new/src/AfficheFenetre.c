@@ -3,6 +3,9 @@
 #include <SDL.h>
 #include <windows.h>
 #include "../header/AfficheFenetre.h"
+
+#include <SDL_image.h>
+
 #include "../header/ImageHandler.h"
 #include "../header/Button.h"
 
@@ -47,15 +50,24 @@ void ActualiserFenetreChoixMode(SDL_Renderer *renderer) {
 }
 
 void ActualiserFenetreChoixGrille(SDL_Renderer *renderer) {
-    int i=0;
-    char nomfichier[5];
+    char* str[15];
+    int a = 110, b = 90;
     SDL_RenderClear(renderer); //Enlève les éléments afficher à l'instant t
     SDL_Texture *background = AfficheImage(renderer,"../image/background.png", 0, 0);
-    for (i=0; i<15; i++) {
-        snprintf(nomfichier, 5, "%d.png", i);
-        SDL_Texture *grille = AfficheImage(renderer, strcat("../image/", nomfichier) ,50*i, 50*i);
+    for (int i=0; i<15; i++) {
+        sprintf(str, "../image/%d.png", i);
+        if ((i%4 == 0) && (i != 0)) {
+            a = 110;
+            b = b + 300;
+            SDL_Texture *grille = AfficheImage(renderer, str, a,b);
+            SDL_DestroyTexture(grille);
 
-        SDL_DestroyTexture(grille);
+        }
+        else {
+            a = a + 340;
+            SDL_Texture *grille = AfficheImage(renderer, str,a, b);
+            SDL_DestroyTexture(grille);
+        }
     }
     SDL_RenderPresent(renderer);
     SDL_DestroyTexture(background);
