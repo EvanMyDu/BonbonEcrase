@@ -47,8 +47,16 @@ void ActualiserFenetreChoixMode(SDL_Renderer *renderer) {
 }
 
 void ActualiserFenetreChoixGrille(SDL_Renderer *renderer) {
+    int i=0;
+    char nomfichier[5];
     SDL_RenderClear(renderer); //Enlève les éléments afficher à l'instant t
     SDL_Texture *background = AfficheImage(renderer,"../image/background.png", 0, 0);
+    for (i=0; i<15; i++) {
+        snprintf(nomfichier, 5, "%d.png", i);
+        SDL_Texture *grille = AfficheImage(renderer, strcat("../image/", nomfichier) ,50*i, 50*i);
+
+        SDL_DestroyTexture(grille);
+    }
     SDL_RenderPresent(renderer);
     SDL_DestroyTexture(background);
 }
