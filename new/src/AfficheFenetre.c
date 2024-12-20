@@ -13,9 +13,9 @@ SDL_Renderer* AfficheFenetre() {
 }
 
 void ActualiserFenetreMenu(SDL_Renderer *renderer) {
-    int xplay = GetSystemMetrics(SM_CXSCREEN)/2-147, yplay = GetSystemMetrics(SM_CYSCREEN)/2 -142; //Determine les coordonnées du bouton et de l'image en fonction de la taille de l'écran
-    int xscore =GetSystemMetrics(SM_CXSCREEN)/2-147, yscore = GetSystemMetrics(SM_CYSCREEN)/2;  //Determine les coordonnées du bouton et de l'image en fonction de la taille de l'écran
-    int xquitter =GetSystemMetrics(SM_CXSCREEN)/2-144, yquitter = GetSystemMetrics(SM_CYSCREEN)/2 + 142; //Determine les coordonnées du bouton et de l'image en fonction de la taille de l'écran
+    int xplay = GetSystemMetrics(SM_CXSCREEN)/2-147, yplay = GetSystemMetrics(SM_CYSCREEN)/2 -50; //Determine les coordonnées du bouton et de l'image en fonction de la taille de l'écran
+    int xscore =GetSystemMetrics(SM_CXSCREEN)/2-147, yscore = GetSystemMetrics(SM_CYSCREEN)/2 +50;  //Determine les coordonnées du bouton et de l'image en fonction de la taille de l'écran
+    int xquitter =GetSystemMetrics(SM_CXSCREEN)/2-144, yquitter = GetSystemMetrics(SM_CYSCREEN)/2 + 150; //Determine les coordonnées du bouton et de l'image en fonction de la taille de l'écran
     int xtitre = GetSystemMetrics(SM_CXSCREEN)/2-550, ytitre = 50; //Determine les coordonnées du bouton et de l'image en fonction de la taille de l'écran
     SDL_RenderClear(renderer); //Enlève les éléments afficher à l'instant t
     SDL_Texture *background = AfficheImage(renderer,"../image/background.png", 0, 0), *bouton = AfficheImage(renderer, "../image/playbouton.png",xplay ,yplay), *titre = AfficheImage(renderer, "../image/titre.png",xtitre ,ytitre), *scorebouton = AfficheImage(renderer, "../image/scorebouton.png", xscore, yscore), *quitter = AfficheImage(renderer, "../image/quitterbouton.png", xquitter, yquitter);
@@ -32,8 +32,8 @@ void ActualiserFenetreMenu(SDL_Renderer *renderer) {
 }
 
 void ActualiserFenetreChoixMode(SDL_Renderer *renderer) {
-    int xrush = GetSystemMetrics(SM_CXSCREEN)/2-147, yrush = GetSystemMetrics(SM_CYSCREEN)/2 -142; //Determine les coordonnées du bouton et de l'image en fonction de la taille de l'écran
-    int xpuzzle =GetSystemMetrics(SM_CXSCREEN)/2-147, ypuzzle = GetSystemMetrics(SM_CYSCREEN)/2;  //Determine les coordonnées du bouton et de l'image en fonction de la taille de l'écran
+    int xrush = GetSystemMetrics(SM_CXSCREEN)/2-147, yrush = GetSystemMetrics(SM_CYSCREEN)/2 +50; //Determine les coordonnées du bouton et de l'image en fonction de la taille de l'écran
+    int xpuzzle =GetSystemMetrics(SM_CXSCREEN)/2-147, ypuzzle = GetSystemMetrics(SM_CYSCREEN)/2 +200;  //Determine les coordonnées du bouton et de l'image en fonction de la taille de l'écran
     int xtitremode = GetSystemMetrics(SM_CXSCREEN)/2-550, ytitremode = 50; //Determine les coordonnées du bouton et de l'image en fonction de la taille de l'écran
     SDL_RenderClear(renderer);
     SDL_Texture *background = AfficheImage(renderer, "../image/background.png",0 ,0), *boutonrush = AfficheImage(renderer, "../image/rushbutton.png", xrush, yrush), *boutonpuzzle = AfficheImage(renderer,"../image/puzzlebuttton.png", xpuzzle, ypuzzle), *choixtitre = AfficheImage(renderer,"../image/modedejeu.png", xtitremode, ytitremode);
@@ -47,7 +47,10 @@ void ActualiserFenetreChoixMode(SDL_Renderer *renderer) {
 }
 
 void ActualiserFenetreChoixGrille(SDL_Renderer *renderer) {
-
+    SDL_RenderClear(renderer); //Enlève les éléments afficher à l'instant t
+    SDL_Texture *background = AfficheImage(renderer,"../image/background.png", 0, 0);
+    SDL_RenderPresent(renderer);
+    SDL_DestroyTexture(background);
 }
 
 void ActualiserFenetreJeu(SDL_Renderer *renderer) {

@@ -4,8 +4,9 @@
 #include <windows.h>
 #include "../header/Button.h"
 #include "../header/AfficheFenetre.h"
+#include "../header/Game.h"
 
-static SDL_Rect buttons_menu[18]; //Définie le tableau avec tout les bouton des menus
+static SDL_Rect buttons_menu[20]; //Définie le tableau avec tout les bouton des menus
 static SDL_Rect buttons_game[72]; //Définie le tableau avec tout les bouton des jeux
 
 void enregistrer_boutton(SDL_Rect tab[], SDL_Rect rect, int rang) {
@@ -34,11 +35,11 @@ int MouseInRect(SDL_Rect rect) {
     }
 }
 
-int GetButtonPurposeMenu(SDL_Renderer *renderer) {
-    for (int i = 0; i < 18; i++) { //
+int GetButtonPurposeMenu(SDL_Renderer *renderer, int rang_d, int rang_f) {
+    for (int i = rang_d; i < rang_f + 1; i++) { //
         if (MouseInRect(buttons_menu[i]) == 1) { //regarde quel bouton est cliqué
             if (i == 0) { //i == 0 est l'indice du bouton play
-                return 0;
+                return 2;
             }
             if (i == 1) {//i  == 1 est l'indice du score
                 return 1;
@@ -47,22 +48,26 @@ int GetButtonPurposeMenu(SDL_Renderer *renderer) {
                 SDL_Quit();
                 exit(EXIT_SUCCESS);
             }
+            if (i == 3) {
+                return SetGameMode(1); //Set le gamemode en rush
+            }
+            if (i == 4) {
+                SetGameMode(4); //Set le gamemode en puzzle
+                return SetGameMode(0);
+            }
         }
     }
-    SDL_Quit();
-    exit(EXIT_SUCCESS);
-    return 0;
 }
 
 
-int GetButtonPurposeGame(SDL_Renderer *renderer) {
-    for (int i = 0; i < 72; i++) {
+int GetButtonPurposeGame(SDL_Renderer *renderer, int rang_d, int rang_f) {
+    for (int i = rang_d; i < rang_f + 1; i++) {
     }
     return 0;
 }
 
 int CheckAllRectMenu() {
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < 20; i++) {
         if (MouseInRect(buttons_menu[i]) == 1) { //Vérifie pour chaque rectangle du menu si la souris est dans un rectangle
             return 1; //return TRUE
         }
@@ -71,7 +76,7 @@ int CheckAllRectMenu() {
 }
 
 int CheckAllRectGame(){
-    for (int i = 0; i < 3; i++) {
+    for (int i = 0; i < 72; i++) {
         if (MouseInRect(buttons_game[i]) == 1) { //Vérifie pour chaque rectangle du jeu si la souris est dans un rectangle
             return 1; //return TRUE
         }
