@@ -24,7 +24,7 @@ void game_loop() {
     SDL_Renderer *renderer = AfficheFenetre(); //Associe à un pointeur l'instance du renderer créer par la fonction AfficheFenetre
     int menu = 1; //Le menu vaut 1 donc TRUE, au lancement du programme nous somme dans le menu
     int jeu = 0; //Le jeu vaut 0 donc FALSE, nous ne somme donc pas en jeu
-    int gamemode = 0; //Le gamemode vaut 0 donc nous sommes en gamemode puzzle
+    int gamemode = 0; //Le gamemode vaut 0 donc nous sommes pas en gamemode
     SDL_bool run = SDL_TRUE; //Tant que ce booléen est TRUE, la boucle de jeu ne s'arrête pas
     while(run){
         SDL_Event event;
@@ -35,28 +35,39 @@ void game_loop() {
             }
             if (menu == 3) {
                 if ((event.type == SDL_MOUSEBUTTONDOWN) && (CheckAllRectMenu(renderer) == 1)) { //Regarde si le clic-gauche de la souris est pressé et que la souris se trouve dans un rectangle du menu
-                    menu = GetButtonPurposeMenu(renderer, 3, 4); //Détermine quel bouton a été cliqué et modifie la valeur de menu en fonction de la fonction du bouton
+                    gamemode = GetButtonPurposeMenu(renderer, 3, 4); //Détermine quel bouton a été cliqué et modifie la valeur de menu en fonction de la fonction du bouton
+                    if (gamemode == 1 || gamemode == 2) {
+                        jeu = 1;
+                        menu = 0;
+                    }
+
                 }
             }
             if (menu == 2) {
                 if ((event.type == SDL_MOUSEBUTTONDOWN) && (CheckAllRectMenu(renderer) == 1)) { //Regarde si le clic-gauche de la souris est pressé et que la souris se trouve dans un rectangle du menu
-                    gamemode = GetButtonPurposeMenu(renderer, 3, 4); //Détermine quel bouton a été cliqué et modifie la valeur de menu en fonction de la fonction du bouton
+                     //Détermine quel bouton a été cliqué et modifie la valeur de menu en fonction de la fonction du bouton
+                    menu = GetButtonPurposeMenu(renderer, 5, 20);
                 }
             }
             if (menu == 1) {
                 if ((event.type == SDL_MOUSEBUTTONDOWN) && (CheckAllRectMenu(renderer) == 1)) { //Regarde si le clic-gauche de la souris est pressé et que la souris se trouve dans un rectangle du menu
-                    printf("test");
                     menu = GetButtonPurposeMenu(renderer, 0, 2); //Détermine quel bouton a été cliqué et modifie la valeur de menu en fonction de la fonction du bouton
+                    printf("%d", menu);
                 }
             }
-            if ((event.type == SDL_MOUSEBUTTONDOWN) && (CheckAllRectGame(renderer) == 1)) { //Regarde si le clic-gauche de la souris est pressé et que la souris se trouve dans un rectangle du jeu
-                jeu = GetButtonPurposeGame(renderer, 0, 72);
+            if (jeu == 1){
+                if ((event.type == SDL_MOUSEBUTTONDOWN) && (CheckAllRectGame(renderer) == 1)) {
+                    //Regarde si le clic-gauche de la souris est pressé et que la souris se trouve dans un rectangle du jeu
+                    jeu = GetButtonPurposeGame(renderer, 0, 72);
+                }
             }
         }
         if (menu == 1) { //Si on est dans le menu
             ActualiserFenetreMenu(renderer); //Affiche le menu
         }
         if (menu == 3) { //Si on est plus dans le menu
+            printf("test");
+
             ActualiserFenetreChoixMode(renderer);
         }
         if (menu == 2) {

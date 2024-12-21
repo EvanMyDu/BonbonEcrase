@@ -51,7 +51,7 @@ void ActualiserFenetreChoixMode(SDL_Renderer *renderer) {
 
 void ActualiserFenetreChoixGrille(SDL_Renderer *renderer) {
     char str[30]; // Taille suffisante pour contenir "../image/XX.png"
-    int a = 110, b = 90; // Position initiale des boutons
+    int a = 110, b = 90;// Position initiale des boutons
     SDL_RenderClear(renderer); // Enlève les éléments affichés à l'instant t
     SDL_Texture *background = AfficheImage(renderer, "../image/background.png", 0, 0);
 
@@ -64,6 +64,7 @@ void ActualiserFenetreChoixGrille(SDL_Renderer *renderer) {
             a += 340;
         }
         SDL_Texture *grille = AfficheImage(renderer, str, a, b);
+        CreerBoutonMenu(renderer, a, b, 294, 84, i+5);
         SDL_DestroyTexture(grille);
     }
 
