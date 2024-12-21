@@ -35,9 +35,8 @@ int MouseInRect(SDL_Rect rect) {
     }
 }
 
-int GetButtonPurposeMenu(SDL_Renderer *renderer, int rang_d, int rang_f) {
+int GetButtonPurposeMenu(SDL_Renderer *renderer, int rang_d, int rang_f, int state) {
     for (int i = rang_d; i < rang_f + 1; i++) { //
-        printf("%d", i);
         if (MouseInRect(buttons_menu[i]) == 1) { //regarde quel bouton est cliqué
             if (i == 0) { //i == 0 est l'indice du bouton play
                 return 2;
@@ -57,11 +56,11 @@ int GetButtonPurposeMenu(SDL_Renderer *renderer, int rang_d, int rang_f) {
                 return SetGameMode(1);
             }
             if (i>= 5 && i<=20) {
-                printf("test");
                 return 3;
             }
         }
     }
+    return state;
 }
 
 
