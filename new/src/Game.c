@@ -6,15 +6,6 @@
 #include "../header/AfficheFenetre.h"
 #include "../header/Button.h"
 
-void creer_grille(int a, int b) { //Prend en paramètres d'entrée une largeur a et une longeur b
-    int *grille[8][6]; //Creer une grille de taille a*b
-    for (int i = 0; i < a; i++) {
-        for (int j = 0; j < b; j++) {
-            printf("%p\t", grille[i][j]);
-        }
-    }
-}
-
 int SetGameMode(int a) {
     return a;
 }
@@ -39,6 +30,9 @@ void game_loop() {
                     if (gamemode == 1 || gamemode == 2) {
                         jeu = 1;
                         menu = 0;
+                        if (gamemode == 1) {
+
+                        }
                     }
                 }
             }

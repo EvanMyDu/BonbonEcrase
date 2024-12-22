@@ -8,4 +8,5 @@ int GetButtonPurposeMenu(SDL_Renderer *renderer, int rang_d, int rang_f, int sta
 int GetButtonPurposeGame(SDL_Renderer *renderer, int rang_d, int rang_f);
 int CheckAllRectMenu();
 int CheckAllRectGame();
+char choix_couleur();
 #endif //BUTTON_H

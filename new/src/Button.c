@@ -13,6 +13,12 @@ void enregistrer_boutton(SDL_Rect tab[], SDL_Rect rect, int rang) {
     tab[rang] = rect; //Enregistre un bouton dans une liste à un rang données en paramètres
 }
 
+char choix_couleur() {
+    srand(time(NULL));
+    int rang = rand()%4;
+    return *couleur[rang];
+}
+
 void CreerBoutonMenu(SDL_Renderer* renderer, int x, int y, int width, int height, int numero) {
     SDL_Rect rect = {x, y, width, height}; //Creer un bouton, qui est un rectangle
     enregistrer_boutton(buttons_menu, rect, numero); //Enregistre le bouton dans le tableau des boutons des menus
@@ -36,6 +42,7 @@ int MouseInRect(SDL_Rect rect) {
 }
 
 int GetButtonPurposeMenu(SDL_Renderer *renderer, int rang_d, int rang_f, int state) {
+    int a = 0;
     for (int i = rang_d; i < rang_f + 1; i++) { //
         if (MouseInRect(buttons_menu[i]) == 1) { //regarde quel bouton est cliqué
             if (i == 0) { //i == 0 est l'indice du bouton play
@@ -56,6 +63,7 @@ int GetButtonPurposeMenu(SDL_Renderer *renderer, int rang_d, int rang_f, int sta
                 return SetGameMode(1);
             }
             if (i>= 5 && i<=20) {
+                creer_grille((((i-5)/3) + 8), ((i-5)%3));
                 return 3;
             }
         }
