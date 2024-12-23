@@ -5,6 +5,7 @@
 #include "../header/Game.h"
 #include "../header/AfficheFenetre.h"
 #include "../header/Button.h"
+#include "../header/score.h"
 
 int SetGameMode(int a) {
     return a;
@@ -23,6 +24,16 @@ void game_loop() {
     int jeu = 0; //Le jeu vaut 0 donc FALSE, nous ne somme donc pas en jeu
     int gamemode = 0; //Le gamemode vaut 0 donc nous sommes pas en gamemode
     SDL_bool run = SDL_TRUE; //Tant que ce booléen est TRUE, la boucle de jeu ne s'arrête pas
+    sauvegarder_score(2500, "Evan");
+    sauvegarder_score(200, "Alice"); // Exemple : Ajouter un score
+    sauvegarder_score(150, "Bob");   // Exemple : Ajouter un autre score
+    sauvegarder_score(300, "Charlie");
+    sauvegarder_score(100, "Diane");
+
+    // Traiter les scores
+    traiter_scores();
+
+
     while(run) {
         SDL_Event event;
         while (SDL_PollEvent(&event)) {
@@ -63,6 +74,10 @@ void game_loop() {
                 }
             }
         }
+        if (menu == 4) {
+            ActualiserFenetreScore(renderer);
+        }
+
         if (menu == 1) { //Si on est dans le menu
             ActualiserFenetreMenu(renderer); //Affiche le menu
         }

@@ -95,3 +95,11 @@ void ActualiserFenetreJeu(SDL_Renderer *renderer) {
     SDL_RenderPresent(renderer);
     SDL_DestroyTexture(background);
 }
+
+
+void ActualiserFenetreScore(SDL_Renderer *renderer) {
+    SDL_RenderClear(renderer);
+    SDL_Texture *background = AfficheImage(renderer,"../image/background.png", 0, 0);
+    SDL_RenderPresent(renderer);
+    SDL_DestroyTexture(background);
+}

@@ -63,7 +63,7 @@ int GetButtonPurposeMenu(SDL_Renderer *renderer, int rang_d, int rang_f, int sta
                 return 2;
             }
             if (i == 1) {//i  == 1 est l'indice du score
-                return 1;
+                return 4;
             }
             if (i == 2) {//i == 2 est l'indice pour quitter
                 SDL_Quit();
