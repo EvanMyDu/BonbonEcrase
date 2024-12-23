@@ -36,9 +36,9 @@ void creer_grille(SDL_Renderer* renderer, int gamemode) {
     srand(time(NULL));
     if (gamemode == 1) {
         for (int i = 0; i < (largeur_grille*hauteur_grille); i++) {
-            CreerBoutonJeu(renderer, (60*i)%largeur_grille, (60*i)/hauteur_grille, 50, 50, i);
-            printf("%d", choix_couleur());
+            CreerBoutonJeu(renderer, (GetSystemMetrics(SM_CXSCREEN)/largeur_grille+2)*(i%largeur_grille), (GetSystemMetrics(SM_CYSCREEN)/hauteur_grille+2)*(i/hauteur_grille), 50, 50, i);
             couleur_boutons[i] = choix_couleur();
+            printf("x = %d, y = %d, couleur = %d, \n", (GetSystemMetrics(SM_CXSCREEN)/largeur_grille+2)*(i%largeur_grille), (GetSystemMetrics(SM_CYSCREEN)/hauteur_grille+2)*(i%hauteur_grille), couleur_boutons[i]);
         }
     }
 }
@@ -76,8 +76,8 @@ int GetButtonPurposeMenu(SDL_Renderer *renderer, int rang_d, int rang_f, int sta
                 return SetGameMode(1); //Set le gamemode en puzzle
             }
             if (i>= 5 && i<=20) {
-                largeur_grille = ((i-5)/3)+8;
-                hauteur_grille = ((i-5)%3)+4;
+                hauteur_grille = ((i-5)/3)+8;
+                largeur_grille = ((i-5)%3)+4;
                 return 3;
             }
         }

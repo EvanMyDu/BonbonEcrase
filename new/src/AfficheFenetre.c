@@ -79,11 +79,11 @@ void ActualiserFenetreJeu(SDL_Renderer *renderer) {
             SDL_Texture *bonbon = AfficheImage(renderer, "../image/rouge.png", buttons_game[i].x, buttons_game[i].y);
             SDL_DestroyTexture(bonbon);
         }
-        if (couleur_boutons[i] == 1) {
+        if (couleur_boutons[i] == 2) {
             SDL_Texture *bonbon = AfficheImage(renderer, "../image/bleu.png", buttons_game[i].x, buttons_game[i].y);
             SDL_DestroyTexture(bonbon);
         }
-        if (couleur_boutons[i] == 1) {
+        if (couleur_boutons[i] == 3) {
             SDL_Texture *bonbon = AfficheImage(renderer, "../image/vert.png", buttons_game[i].x, buttons_game[i].y);
             SDL_DestroyTexture(bonbon);
         }

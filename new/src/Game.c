@@ -73,7 +73,7 @@ void game_loop() {
             ActualiserFenetreChoixGrille(renderer);
         }
         if (jeu == 1) { //Si on est dans le jeu
-            ActualiserFenetreJeu(renderer); //Affiche le jeu
+            ActualiserFenetreJeu(renderer); //Affiche le jeu*
         }
     }
     SDL_Quit(); //Si la boucle de jeu s'arrête on quitte SDL
