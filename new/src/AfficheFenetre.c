@@ -8,7 +8,7 @@
 #include "../header/Button.h"
 
 SDL_Renderer* AfficheFenetre() {
-    SDL_Window *window = SDL_CreateWindow("Hello World", SDL_WINDOWPOS_UNDEFINED, 35, GetSystemMetrics(SM_CXSCREEN), GetSystemMetrics(SM_CYSCREEN) - 30, SDL_WINDOW_OPENGL); //Creer une fenêtre de la taille de l'écran de l'utilisateur
+    SDL_Window *window = SDL_CreateWindow("Hello World", SDL_WINDOWPOS_UNDEFINED, 20, GetSystemMetrics(SM_CXSCREEN), GetSystemMetrics(SM_CYSCREEN) - 30, SDL_WINDOW_OPENGL); //Creer une fenêtre de la taille de l'écran de l'utilisateur
     SDL_Renderer *renderer = SDL_CreateRenderer(window, -1, SDL_RENDERER_ACCELERATED); //Creer un renderer pour pouvoir afficher des textures
     return renderer;
 }
