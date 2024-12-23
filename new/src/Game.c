@@ -20,6 +20,7 @@ void print_grille(int grille[]) {
 
 void game_loop() {
     SDL_Init(SDL_INIT_EVERYTHING); //Initialise la bibliotheque SDL
+    TTF_Init();
     SDL_Renderer *renderer = AfficheFenetre(); //Associe à un pointeur l'instance du renderer créer par la fonction AfficheFenetre
     int menu = 1; //Le menu vaut 1 donc TRUE, au lancement du programme nous somme dans le menu
     int jeu = 0; //Le jeu vaut 0 donc FALSE, nous ne somme donc pas en jeu
@@ -32,7 +33,7 @@ void game_loop() {
     sauvegarder_score(100, "Diane");
 
     // Traiter les scores
-    traiter_scores();
+    traiter_scores(renderer);
 
 
     while(run) {

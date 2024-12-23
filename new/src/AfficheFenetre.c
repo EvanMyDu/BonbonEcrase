@@ -3,9 +3,10 @@
 #include <SDL.h>
 #include <windows.h>
 #include "../header/AfficheFenetre.h"
-#include <SDL_image.h>
+#include <SDL_ttf.h>
 #include "../header/ImageHandler.h"
 #include "../header/Button.h"
+#include "../header/score.h"
 
 SDL_Renderer* AfficheFenetre() {
     SDL_Window *window = SDL_CreateWindow("Hello World", SDL_WINDOWPOS_UNDEFINED, 20, GetSystemMetrics(SM_CXSCREEN), GetSystemMetrics(SM_CYSCREEN) - 30, SDL_WINDOW_OPENGL); //Creer une fenêtre de la taille de l'écran de l'utilisateur
@@ -102,8 +103,69 @@ void ActualiserFenetreJeu(SDL_Renderer *renderer) {
 
 
 void ActualiserFenetreScore(SDL_Renderer *renderer) {
-    SDL_RenderClear(renderer);
-    SDL_Texture *background = AfficheImage(renderer,"../image/background.png", 0, 0);
+   SDL_RenderClear(renderer);
+
+    // Charger la police
+    TTF_Font *Font = TTF_OpenFont("../police/arial.ttf", 30);
+    // Charger le fond d'écran
+    SDL_Texture *background = AfficheImage(renderer, "../image/background.png", 0, 0);
+
+    // Lire et trier les scores
+    Joueur joueurs[100];
+    int nb_joueurs = lire_score(100, joueurs);
+
+    if (nb_joueurs == 0) {
+        printf("Aucun score à afficher.\n");
+        SDL_DestroyTexture(background);
+        TTF_CloseFont(Font);
+        return;
+    }
+
+    qsort(joueurs, nb_joueurs, sizeof(Joueur), comparer_scores);
+
+    // Limiter au top 10
+    if (nb_joueurs > 10) {
+        nb_joueurs = 10;
+    }
+
+    // Afficher les scores triés
+    SDL_Color couleurBlanche = {255, 255, 255, 255};
+    SDL_Rect TextRect;
+    TextRect.x = 100; // Position de départ X
+    TextRect.y = 100; // Position de départ Y
+    TextRect.w = 0;   // Largeur sera ajustée automatiquement
+    TextRect.h = 0;   // Hauteur sera ajustée automatiquement
+
+    for (int i = 0; i < nb_joueurs; i++) {
+        // Créer le texte pour chaque joueur
+        char scoreTexte[100];
+        snprintf(scoreTexte, sizeof(scoreTexte), "%d. %s : %d", i + 1, joueurs[i].nom, joueurs[i].score);
+
+        SDL_Surface *TextSurface = TTF_RenderText_Blended_Wrapped(Font, scoreTexte, couleurBlanche, 800);
+
+
+        SDL_Texture *TextTexture = SDL_CreateTextureFromSurface(renderer, TextSurface);
+ 
+
+        // Ajuster la taille du rectangle à la taille du texte
+        TextRect.w = TextSurface->w;
+        TextRect.h = TextSurface->h;
+
+        // Rendre la texture dans le renderer
+        SDL_RenderCopy(renderer, TextTexture, NULL, &TextRect);
+
+        // Libérer les ressources pour ce texte
+        SDL_FreeSurface(TextSurface);
+        SDL_DestroyTexture(TextTexture);
+
+        // Passer à la ligne suivante
+        TextRect.y += 50; // Ajuster l'espacement vertical entre les lignes
+    }
+
+    // Afficher les éléments rendus
     SDL_RenderPresent(renderer);
+
+    // Libérer les ressources
     SDL_DestroyTexture(background);
+    TTF_CloseFont(Font);
 }

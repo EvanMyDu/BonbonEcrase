@@ -1,6 +1,8 @@
 #include "../header/score.h"
 #include <stdlib.h>
 #include <stdio.h>
+#include <SDL_ttf.h>
+
 
 
 void sauvegarder_score(int score, char nom[]) {
@@ -54,7 +56,6 @@ int comparer_scores(const void *a, const void *b) {
 
 
 void afficher_scores(Joueur joueurs[], int nb_joueurs) {
-    printf("Top %d Scores :\n", 10);
     for (int i = 0; i < nb_joueurs; i++) {
         printf("%s %d\n", joueurs[i].nom, joueurs[i].score);
     }
@@ -82,3 +83,4 @@ void traiter_scores() {
     // Afficher les scores triés
     afficher_scores(joueurs, nb_joueurs);
 }
+
