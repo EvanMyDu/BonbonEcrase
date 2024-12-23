@@ -3,9 +3,7 @@
 #include <SDL.h>
 #include <windows.h>
 #include "../header/AfficheFenetre.h"
-
 #include <SDL_image.h>
-
 #include "../header/ImageHandler.h"
 #include "../header/Button.h"
 
@@ -74,8 +72,26 @@ void ActualiserFenetreChoixGrille(SDL_Renderer *renderer) {
 
 
 void ActualiserFenetreJeu(SDL_Renderer *renderer) {
-    SDL_RenderClear(renderer);
-    SDL_Texture *adlaurent = AfficheImage(renderer, "../image/adlaurent.jpg",600 ,435);
+    SDL_RenderClear(renderer); // Enlève les éléments affichés à l'instant t
+    SDL_Texture *background = AfficheImage(renderer, "../image/background.png", 0, 0);
+    for (int i = 0; i < (largeur_grille*hauteur_grille); i++) {
+        if (couleur_boutons[i] == 1) {
+            SDL_Texture *bonbon = AfficheImage(renderer, "../image/rouge.png", buttons_game[i].x, buttons_game[i].y);
+            SDL_DestroyTexture(bonbon);
+        }
+        if (couleur_boutons[i] == 1) {
+            SDL_Texture *bonbon = AfficheImage(renderer, "../image/bleu.png", buttons_game[i].x, buttons_game[i].y);
+            SDL_DestroyTexture(bonbon);
+        }
+        if (couleur_boutons[i] == 1) {
+            SDL_Texture *bonbon = AfficheImage(renderer, "../image/vert.png", buttons_game[i].x, buttons_game[i].y);
+            SDL_DestroyTexture(bonbon);
+        }
+        if (couleur_boutons[i] == 4) {
+            SDL_Texture *bonbon = AfficheImage(renderer, "../image/jaune.png", buttons_game[i].x, buttons_game[i].y);
+            SDL_DestroyTexture(bonbon);
+        }
+    }
     SDL_RenderPresent(renderer);
-    SDL_DestroyTexture(adlaurent);
+    SDL_DestroyTexture(background);
 }

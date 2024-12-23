@@ -5,18 +5,21 @@
 #include "../header/Button.h"
 #include "../header/AfficheFenetre.h"
 #include "../header/Game.h"
+#include <time.h>
 
 static SDL_Rect buttons_menu[20]; //Définie le tableau avec tout les bouton des menus
-static SDL_Rect buttons_game[72]; //Définie le tableau avec tout les bouton des jeux
+SDL_Rect buttons_game[72]; //Définie le tableau avec tout les bouton des jeux
+int largeur_grille;
+int hauteur_grille;
+int couleur_boutons[72];
 
 void enregistrer_boutton(SDL_Rect tab[], SDL_Rect rect, int rang) {
     tab[rang] = rect; //Enregistre un bouton dans une liste à un rang données en paramètres
 }
 
-char choix_couleur() {
-    srand(time(NULL));
-    int rang = rand()%4;
-    return *couleur[rang];
+int choix_couleur() {
+    int couleur = (rand()%4)+1;
+    return couleur;
 }
 
 void CreerBoutonMenu(SDL_Renderer* renderer, int x, int y, int width, int height, int numero) {
@@ -27,6 +30,17 @@ void CreerBoutonMenu(SDL_Renderer* renderer, int x, int y, int width, int height
 void CreerBoutonJeu(SDL_Renderer* renderer, int x, int y, int width, int height, int numero) {
     SDL_Rect rect = {x, y, width, height}; //Creer un bouton, qui est un rectangle
     enregistrer_boutton(buttons_game, rect, numero); //Enregistre le bouton dans le tableau des boutons du jeu
+}
+
+void creer_grille(SDL_Renderer* renderer, int gamemode) {
+    srand(time(NULL));
+    if (gamemode == 1) {
+        for (int i = 0; i < (largeur_grille*hauteur_grille); i++) {
+            CreerBoutonJeu(renderer, (60*i)%largeur_grille, (60*i)/hauteur_grille, 50, 50, i);
+            printf("%d", choix_couleur());
+            couleur_boutons[i] = choix_couleur();
+        }
+    }
 }
 
 int MouseInRect(SDL_Rect rect) {
@@ -59,11 +73,11 @@ int GetButtonPurposeMenu(SDL_Renderer *renderer, int rang_d, int rang_f, int sta
                 return SetGameMode(2); //Set le gamemode en rush
             }
             if (i == 4) {
-                SetGameMode(4); //Set le gamemode en puzzle
-                return SetGameMode(1);
+                return SetGameMode(1); //Set le gamemode en puzzle
             }
             if (i>= 5 && i<=20) {
-                creer_grille((((i-5)/3) + 8), ((i-5)%3));
+                largeur_grille = ((i-5)/3)+8;
+                hauteur_grille = ((i-5)%3)+4;
                 return 3;
             }
         }
