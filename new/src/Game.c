@@ -46,8 +46,13 @@ void ajouter_ligne() {
 
 void echange_bonbon(int indice_echange) {
     int temp_couleur = couleur_boutons[indice_clicked];
-    couleur_boutons[indice_clicked] = couleur_boutons[indice_echange];
-    couleur_boutons[indice_echange] = temp_couleur;
+    if (((indice_echange == indice_clicked + 1) || (indice_echange == indice_clicked - 1)) || ((indice_echange == (indice_clicked - largeur_grille)) || (indice_echange == (indice_clicked + largeur_grille)))) {
+        couleur_boutons[indice_clicked] = couleur_boutons[indice_echange];
+        couleur_boutons[indice_echange] = temp_couleur;
+    }
+    else {
+        clicked = 0;
+    }
 }
 
 void game_loop() {
@@ -130,10 +135,12 @@ void game_loop() {
         if (jeu == 1) { //Si on est dans le jeu
             ActualiserFenetreJeu(renderer); //Affiche le jeu*
             current = time(NULL);
-            if (current - start >= 15) {
-                remonter_couleur();
-                ajouter_ligne();
-                start = current;
+            if (gamemode == 2) {
+                if (current - start >= 15) {
+                    remonter_couleur();
+                    ajouter_ligne();
+                    start = current;
+                }
             }
         }
     }
