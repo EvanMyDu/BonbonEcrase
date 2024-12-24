@@ -44,18 +44,22 @@ void creer_grille(SDL_Renderer* renderer, int gamemode) {
         for (int i = 0; i < (largeur_grille*hauteur_grille); i++) {
             CreerBoutonJeu(renderer, (((GetSystemMetrics(SM_CXSCREEN)/(largeur_grille+1))*(i%largeur_grille)) + (GetSystemMetrics(SM_CXSCREEN)/(largeur_grille+1))), (GetSystemMetrics(SM_CYSCREEN)/hauteur_grille+2)*(i/largeur_grille), 50, 50, i);
         }
-        for (int j = (largeur_grille*hauteur_grille); j > ((hauteur_grille-3)*largeur_grille) - 1; j--) {
+        for (int j = (largeur_grille*hauteur_grille) - 1; j > ((hauteur_grille-3)*largeur_grille) - 1; j--) {
             couleur_boutons[j] = choix_couleur();
         }
     }
 }
 
-void ajouter_ligne(SDL_Renderer *renderer) {
-    printf("%d", largeur_grille);
-    for (int i = (largeur_grille*hauteur_grille); i > ((largeur_grille*(hauteur_grille-1))-1); i--) {
-        int temp_couleur = couleur_boutons[i];
+void remonter_couleur() {
+    for (int i = 0; i < ((largeur_grille*hauteur_grille) - largeur_grille); i++) {
+        couleur_boutons[i] = couleur_boutons[i + largeur_grille];
+        couleur_boutons[i+largeur_grille] = 0;
+    }
+}
+
+void ajouter_ligne() {
+    for (int i = ((largeur_grille*hauteur_grille) - largeur_grille); i < (largeur_grille*hauteur_grille); i++) {
         couleur_boutons[i] = choix_couleur();
-        couleur_boutons[i-largeur_grille] = temp_couleur;
     }
 }
 

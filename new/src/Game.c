@@ -96,7 +96,8 @@ void game_loop() {
             ActualiserFenetreJeu(renderer); //Affiche le jeu*
             current = time(NULL);
             if (current - start >= 3) {
-                ajouter_ligne(renderer);
+                remonter_couleur();
+                ajouter_ligne();
                 start = current;
             }
         }
