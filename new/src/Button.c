@@ -86,7 +86,6 @@ void GetButtonPurposeGame(SDL_Renderer *renderer) {
             if (couleur_boutons[i] != 0 && clicked == 0) {
                 clicked = 1;
                 indice_clicked = i;
-
             }
             else if (clicked == 1) {
                 echange_bonbon(i);

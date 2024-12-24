@@ -56,12 +56,13 @@ int deja_enregistrer(int indice_echange) {
     return 0;
 }
 
-void check_bonbon_alentours(int indice_echange) {
+int check_bonbon_alentours(int indice_echange) {
     if (indice_echange%(largeur_grille) != largeur_grille-1) {
         if ((couleur_boutons[indice_echange] == couleur_boutons[indice_echange + 1]) && (deja_enregistrer(indice_echange + 1) != 1)) {
             rang_suppression[nombre_consecutif] = indice_echange + 1;
             nombre_consecutif++;
             check_bonbon_alentours(indice_echange + 1);
+            return 0;
         }
     }
     if (indice_echange%(largeur_grille) != 0) {
@@ -69,6 +70,7 @@ void check_bonbon_alentours(int indice_echange) {
             rang_suppression[nombre_consecutif] = indice_echange -1;
             nombre_consecutif++;
             check_bonbon_alentours(indice_echange - 1);
+            return 0;
         }
     }
     if (indice_echange < ((largeur_grille*hauteur_grille)-largeur_grille)) {
@@ -76,6 +78,7 @@ void check_bonbon_alentours(int indice_echange) {
             rang_suppression[nombre_consecutif] = indice_echange + largeur_grille;
             nombre_consecutif++;
             check_bonbon_alentours(indice_echange + largeur_grille);
+            return 0;
         }
     }
     if (indice_echange > (largeur_grille)-1) {
@@ -83,8 +86,10 @@ void check_bonbon_alentours(int indice_echange) {
             rang_suppression[nombre_consecutif] = indice_echange - largeur_grille;
             nombre_consecutif++;
             check_bonbon_alentours(indice_echange - largeur_grille);
+            return 0;
         }
     }
+    return 0;
 }
 
 void check_bonbon_identiques(int indice_echange) {
@@ -111,12 +116,9 @@ void reinitialiser_tableau(int tab[]) {
 
 void echange_bonbon(int indice_echange) {
     int temp_couleur = couleur_boutons[indice_clicked];
-    if (((indice_echange == indice_clicked + 1) || (indice_echange == indice_clicked - 1)) || ((indice_echange == (indice_clicked - largeur_grille)) || (indice_echange == (indice_clicked + largeur_grille)))) {
+    if (((((indice_echange == indice_clicked + 1) || (indice_echange == indice_clicked - 1)) || ((indice_echange == (indice_clicked - largeur_grille))) || (indice_echange == (indice_clicked + largeur_grille)))) && ((couleur_boutons[indice_echange] != (couleur_boutons[indice_clicked])) && (couleur_boutons[indice_echange] != 0))) {
         couleur_boutons[indice_clicked] = couleur_boutons[indice_echange];
         couleur_boutons[indice_echange] = temp_couleur;
-        check_bonbon_identiques(indice_echange);
-        supprimer_bonbon(indice_echange);
-        reinitialiser_tableau(rang_suppression);
     }
     else {
         clicked = 0;
@@ -203,6 +205,13 @@ void game_loop() {
         if (jeu == 1) { //Si on est dans le jeu
             ActualiserFenetreJeu(renderer); //Affiche le jeu*
             current = time(NULL);
+            if (gamemode == 1) {
+                for (int i = 0; i < largeur_grille*hauteur_grille; i++) {
+                    check_bonbon_identiques(i);
+                    supprimer_bonbon(i);
+                    reinitialiser_tableau(rang_suppression);
+                }
+            }
             if (gamemode == 2) {
                 if (current - start >= 15) {
                     remonter_couleur();
