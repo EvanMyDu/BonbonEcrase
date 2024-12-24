@@ -9,6 +9,9 @@
 #include "../header/Button.h"
 #include "../header/score.h"
 
+int rang_suppression[12];
+static int nombre_consecutif = 0;
+
 int SetGameMode(int a) {
     return a;
 }
@@ -44,11 +47,76 @@ void ajouter_ligne() {
     }
 }
 
+int deja_enregistrer(int indice_echange) {
+    for (int i = 0; i < 12; i++) {
+        if (indice_echange == rang_suppression[i]) {
+            return 1;
+        }
+    }
+    return 0;
+}
+
+void check_bonbon_alentours(int indice_echange) {
+    if (indice_echange%(largeur_grille) != largeur_grille-1) {
+        if ((couleur_boutons[indice_echange] == couleur_boutons[indice_echange + 1]) && (deja_enregistrer(indice_echange + 1) != 1)) {
+            rang_suppression[nombre_consecutif] = indice_echange + 1;
+            nombre_consecutif++;
+            check_bonbon_alentours(indice_echange + 1);
+        }
+    }
+    if (indice_echange%(largeur_grille) != 0) {
+        if ((couleur_boutons[indice_echange] == couleur_boutons[indice_echange -1]) && (deja_enregistrer(indice_echange - 1) != 1)) {
+            rang_suppression[nombre_consecutif] = indice_echange -1;
+            nombre_consecutif++;
+            check_bonbon_alentours(indice_echange - 1);
+        }
+    }
+    if (indice_echange < ((largeur_grille*hauteur_grille)-largeur_grille)) {
+        if ((couleur_boutons[indice_echange] == couleur_boutons[indice_echange + largeur_grille]) && (deja_enregistrer(indice_echange + largeur_grille) != 1)) {
+            rang_suppression[nombre_consecutif] = indice_echange + largeur_grille;
+            nombre_consecutif++;
+            check_bonbon_alentours(indice_echange + largeur_grille);
+        }
+    }
+    if (indice_echange > (largeur_grille)-1) {
+        if ((couleur_boutons[indice_echange] == couleur_boutons[indice_echange - largeur_grille]) && (deja_enregistrer(indice_echange - largeur_grille) != 1)) {
+            rang_suppression[nombre_consecutif] = indice_echange - largeur_grille;
+            nombre_consecutif++;
+            check_bonbon_alentours(indice_echange - largeur_grille);
+        }
+    }
+}
+
+void check_bonbon_identiques(int indice_echange) {
+    check_bonbon_alentours(indice_echange);
+}
+
+void supprimer_bonbon(int indice_echange) {
+    if (nombre_consecutif >= 4) {
+        for (int i = 0; i < nombre_consecutif; i++) {
+            couleur_boutons[rang_suppression[i]] = 0;
+        }
+        nombre_consecutif = 0;
+    }
+    else {
+        nombre_consecutif = 0;
+    }
+}
+
+void reinitialiser_tableau(int tab[]) {
+    for (int i = 0; i < 12; i++) {
+        tab[i] = 0;
+    }
+}
+
 void echange_bonbon(int indice_echange) {
     int temp_couleur = couleur_boutons[indice_clicked];
     if (((indice_echange == indice_clicked + 1) || (indice_echange == indice_clicked - 1)) || ((indice_echange == (indice_clicked - largeur_grille)) || (indice_echange == (indice_clicked + largeur_grille)))) {
         couleur_boutons[indice_clicked] = couleur_boutons[indice_echange];
         couleur_boutons[indice_echange] = temp_couleur;
+        check_bonbon_identiques(indice_echange);
+        supprimer_bonbon(indice_echange);
+        reinitialiser_tableau(rang_suppression);
     }
     else {
         clicked = 0;
