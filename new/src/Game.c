@@ -3,6 +3,7 @@
 #include <SDL.h>
 #include <SDL_ttf.h>
 #include <windows.h>
+#include <time.h>
 #include "../header/Game.h"
 #include "../header/AfficheFenetre.h"
 #include "../header/Button.h"
@@ -19,6 +20,8 @@ void print_grille(int grille[]) {
 }
 
 void game_loop() {
+    time_t start = time(NULL);
+    time_t current;
     SDL_Init(SDL_INIT_EVERYTHING); //Initialise la bibliotheque SDL
     TTF_Init();
     SDL_Renderer *renderer = AfficheFenetre(); //Associe à un pointeur l'instance du renderer créer par la fonction AfficheFenetre
@@ -91,6 +94,11 @@ void game_loop() {
         }
         if (jeu == 1) { //Si on est dans le jeu
             ActualiserFenetreJeu(renderer); //Affiche le jeu*
+            current = time(NULL);
+            if (current - start >= 3) {
+                ajouter_ligne(renderer);
+                start = current;
+            }
         }
     }
     SDL_Quit(); //Si la boucle de jeu s'arrête on quitte SDL
