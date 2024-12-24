@@ -35,8 +35,7 @@ void game_loop() {
     sauvegarder_score(300, "Charlie");
     sauvegarder_score(100, "Diane");
 
-    // Traiter les scores
-    traiter_scores(renderer);
+
 
 
     while(run) {
@@ -61,6 +60,11 @@ void game_loop() {
                     }
                 }
             }
+            if (menu == 4) {
+                if ((event.type == SDL_MOUSEBUTTONDOWN) && (CheckAllRectGame() == 1)) {
+                    menu = GetButtonPurposeGame(renderer, 1000, 1001);
+                }
+            }
             if (menu == 2) {
                 if ((event.type == SDL_MOUSEBUTTONDOWN) && (CheckAllRectMenu() == 1)) { //Regarde si le clic-gauche de la souris est pressé et que la souris se trouve dans un rectangle du menu
                     //Détermine quel bouton a été cliqué et modifie la valeur de menu en fonction de la fonction du bouton
@@ -78,6 +82,7 @@ void game_loop() {
                     jeu = GetButtonPurposeGame(renderer, 0, 72);
                 }
             }
+
         }
         if (menu == 4) {
             ActualiserFenetreScore(renderer);

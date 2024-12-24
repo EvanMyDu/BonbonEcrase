@@ -55,24 +55,22 @@ int comparer_scores(const void *a, const void *b) {
 }
 
 
-void afficher_scores(Joueur joueurs[], int nb_joueurs) {
-    for (int i = 0; i < nb_joueurs; i++) {
-        printf("%s %d\n", joueurs[i].nom, joueurs[i].score);
-    }
-}
-void traiter_scores() {
-    Joueur joueurs[100]; // Tableau temporaire pour stocker tous les scores du fichier
+ void affichescore(SDL_Renderer *renderer) {
+    // Charger la police
+    TTF_Font *Font = TTF_OpenFont("../police/arialbd.ttf", 30);
+    // Charger le fond d'écran
 
-    // Lire les scores depuis le fichier
+
+    // Lire et trier les scores
+    Joueur joueurs[100];
     int nb_joueurs = lire_score(100, joueurs);
 
-    // Vérifier si des scores ont été lus
     if (nb_joueurs == 0) {
         printf("Aucun score à afficher.\n");
+        TTF_CloseFont(Font);
         return;
     }
 
-    // Trier les scores
     qsort(joueurs, nb_joueurs, sizeof(Joueur), comparer_scores);
 
     // Limiter au top 10
@@ -81,6 +79,41 @@ void traiter_scores() {
     }
 
     // Afficher les scores triés
-    afficher_scores(joueurs, nb_joueurs);
+    SDL_Color couleurBlanche = {255, 255, 255, 255};
+    SDL_Rect TextRect;
+    TextRect.x = 100; // Position de départ X
+    TextRect.y = 100; // Position de départ Y
+    TextRect.w = 0;   // Largeur sera ajustée automatiquement
+    TextRect.h = 0;   // Hauteur sera ajustée automatiquement
+
+    for (int i = 0; i < nb_joueurs; i++) {
+        // Créer le texte pour chaque joueur
+        char scoreTexte[100];
+        snprintf(scoreTexte, sizeof(scoreTexte), "%d. %s : %d", i + 1, joueurs[i].nom, joueurs[i].score);
+
+        SDL_Surface *TextSurface = TTF_RenderText_Blended_Wrapped(Font, scoreTexte, couleurBlanche, 800);
+
+
+        SDL_Texture *TextTexture = SDL_CreateTextureFromSurface(renderer, TextSurface);
+
+
+        // Ajuster la taille du rectangle à la taille du texte
+        TextRect.w = TextSurface->w;
+        TextRect.h = TextSurface->h;
+
+        // Rendre la texture dans le renderer
+        SDL_RenderCopy(renderer, TextTexture, NULL, &TextRect);
+
+        // Libérer les ressources pour ce texte
+        SDL_FreeSurface(TextSurface);
+        SDL_DestroyTexture(TextTexture);
+
+        // Passer à la ligne suivante
+        TextRect.y += 50; // Ajuster l'espacement vertical entre les lignes
+    }
+    SDL_RenderPresent(renderer);
+    TTF_CloseFont(Font);
 }
+
+
 

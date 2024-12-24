@@ -100,6 +100,9 @@ int GetButtonPurposeMenu(SDL_Renderer *renderer, int rang_d, int rang_f, int sta
                 largeur_grille = ((i-5)%3)+4;
                 return 3;
             }
+            if (i == 1000){
+                return 1;
+            }
         }
     }
     return state;
