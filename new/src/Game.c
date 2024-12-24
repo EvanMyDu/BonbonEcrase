@@ -13,10 +13,41 @@ int SetGameMode(int a) {
     return a;
 }
 
-void print_grille(int grille[]) {
-    for (int i = 0; i < 72; i++) {
-        printf("couleur = %d ", couleur_boutons[i]);
+void creer_grille(SDL_Renderer* renderer, int gamemode) {
+    srand(time(NULL));
+    if (gamemode == 1) {
+        for (int i = 0; i < (largeur_grille*hauteur_grille); i++) {
+            CreerBoutonJeu(renderer, (((GetSystemMetrics(SM_CXSCREEN)/(largeur_grille+1))*(i%largeur_grille)) + (GetSystemMetrics(SM_CXSCREEN)/(largeur_grille+1))), (GetSystemMetrics(SM_CYSCREEN)/hauteur_grille+2)*(i/largeur_grille), 50, 50, i);
+            couleur_boutons[i] = choix_couleur();
+        }
     }
+    if (gamemode == 2) {
+        for (int i = 0; i < (largeur_grille*hauteur_grille); i++) {
+            CreerBoutonJeu(renderer, (((GetSystemMetrics(SM_CXSCREEN)/(largeur_grille+1))*(i%largeur_grille)) + (GetSystemMetrics(SM_CXSCREEN)/(largeur_grille+1))), (GetSystemMetrics(SM_CYSCREEN)/hauteur_grille+2)*(i/largeur_grille), 50, 50, i);
+        }
+        for (int j = (largeur_grille*hauteur_grille) - 1; j > ((hauteur_grille-3)*largeur_grille) - 1; j--) {
+            couleur_boutons[j] = choix_couleur();
+        }
+    }
+}
+
+void remonter_couleur() {
+    for (int i = 0; i < ((largeur_grille*hauteur_grille) - largeur_grille); i++) {
+        couleur_boutons[i] = couleur_boutons[i + largeur_grille];
+        couleur_boutons[i+largeur_grille] = 0;
+    }
+}
+
+void ajouter_ligne() {
+    for (int i = ((largeur_grille*hauteur_grille) - largeur_grille); i < (largeur_grille*hauteur_grille); i++) {
+        couleur_boutons[i] = choix_couleur();
+    }
+}
+
+void echange_bonbon(int indice_echange) {
+    int temp_couleur = couleur_boutons[indice_clicked];
+    couleur_boutons[indice_clicked] = couleur_boutons[indice_echange];
+    couleur_boutons[indice_echange] = temp_couleur;
 }
 
 void game_loop() {
@@ -62,7 +93,7 @@ void game_loop() {
             }
             if (menu == 4) {
                 if ((event.type == SDL_MOUSEBUTTONDOWN) && (CheckAllRectGame() == 1)) {
-                    menu = GetButtonPurposeGame(renderer, 1000, 1001);
+                    menu = GetButtonPurposeMenu(renderer, 21, 21, menu);
                 }
             }
             if (menu == 2) {
@@ -76,10 +107,9 @@ void game_loop() {
                     menu = GetButtonPurposeMenu(renderer, 0, 2, menu); //Détermine quel bouton a été cliqué et modifie la valeur de menu en fonction de la fonction du bouton
                 }
             }
-            if (jeu == 1){
-                if ((event.type == SDL_MOUSEBUTTONDOWN) && (CheckAllRectGame() == 1)) {
-                    //Regarde si le clic-gauche de la souris est pressé et que la souris se trouve dans un rectangle du jeu
-                    jeu = GetButtonPurposeGame(renderer, 0, 72);
+            if (jeu == 1) {
+                if ((event.type == SDL_MOUSEBUTTONDOWN) && (CheckAllRectGame() == 1)) { //Regarde si le clic-gauche de la souris est pressé et que la souris se trouve dans un rectangle du jeu
+                    GetButtonPurposeGame(renderer);
                 }
             }
 
@@ -100,7 +130,7 @@ void game_loop() {
         if (jeu == 1) { //Si on est dans le jeu
             ActualiserFenetreJeu(renderer); //Affiche le jeu*
             current = time(NULL);
-            if (current - start >= 3) {
+            if (current - start >= 15) {
                 remonter_couleur();
                 ajouter_ligne();
                 start = current;

@@ -7,11 +7,13 @@
 #include "../header/Game.h"
 #include <time.h>
 
-static SDL_Rect buttons_menu[20]; //Définie le tableau avec tout les bouton des menus
+static SDL_Rect buttons_menu[21]; //Définie le tableau avec tout les bouton des menus
 SDL_Rect buttons_game[72]; //Définie le tableau avec tout les bouton des jeux
 int largeur_grille;
 int hauteur_grille;
 int couleur_boutons[72];
+int indice_clicked;
+int clicked = 0;
 
 void enregistrer_boutton(SDL_Rect tab[], SDL_Rect rect, int rang) {
     tab[rang] = rect; //Enregistre un bouton dans une liste à un rang données en paramètres
@@ -30,37 +32,6 @@ void CreerBoutonMenu(SDL_Renderer* renderer, int x, int y, int width, int height
 void CreerBoutonJeu(SDL_Renderer* renderer, int x, int y, int width, int height, int numero) {
     SDL_Rect rect = {x, y, width, height}; //Creer un bouton, qui est un rectangle
     enregistrer_boutton(buttons_game, rect, numero); //Enregistre le bouton dans le tableau des boutons du jeu
-}
-
-void creer_grille(SDL_Renderer* renderer, int gamemode) {
-    srand(time(NULL));
-    if (gamemode == 1) {
-        for (int i = 0; i < (largeur_grille*hauteur_grille); i++) {
-            CreerBoutonJeu(renderer, (((GetSystemMetrics(SM_CXSCREEN)/(largeur_grille+1))*(i%largeur_grille)) + (GetSystemMetrics(SM_CXSCREEN)/(largeur_grille+1))), (GetSystemMetrics(SM_CYSCREEN)/hauteur_grille+2)*(i/largeur_grille), 50, 50, i);
-            couleur_boutons[i] = choix_couleur();
-        }
-    }
-    if (gamemode == 2) {
-        for (int i = 0; i < (largeur_grille*hauteur_grille); i++) {
-            CreerBoutonJeu(renderer, (((GetSystemMetrics(SM_CXSCREEN)/(largeur_grille+1))*(i%largeur_grille)) + (GetSystemMetrics(SM_CXSCREEN)/(largeur_grille+1))), (GetSystemMetrics(SM_CYSCREEN)/hauteur_grille+2)*(i/largeur_grille), 50, 50, i);
-        }
-        for (int j = (largeur_grille*hauteur_grille) - 1; j > ((hauteur_grille-3)*largeur_grille) - 1; j--) {
-            couleur_boutons[j] = choix_couleur();
-        }
-    }
-}
-
-void remonter_couleur() {
-    for (int i = 0; i < ((largeur_grille*hauteur_grille) - largeur_grille); i++) {
-        couleur_boutons[i] = couleur_boutons[i + largeur_grille];
-        couleur_boutons[i+largeur_grille] = 0;
-    }
-}
-
-void ajouter_ligne() {
-    for (int i = ((largeur_grille*hauteur_grille) - largeur_grille); i < (largeur_grille*hauteur_grille); i++) {
-        couleur_boutons[i] = choix_couleur();
-    }
 }
 
 int MouseInRect(SDL_Rect rect) {
@@ -100,7 +71,7 @@ int GetButtonPurposeMenu(SDL_Renderer *renderer, int rang_d, int rang_f, int sta
                 largeur_grille = ((i-5)%3)+4;
                 return 3;
             }
-            if (i == 1000){
+            if (i == 21){
                 return 1;
             }
         }
@@ -109,10 +80,19 @@ int GetButtonPurposeMenu(SDL_Renderer *renderer, int rang_d, int rang_f, int sta
 }
 
 
-int GetButtonPurposeGame(SDL_Renderer *renderer, int rang_d, int rang_f) {
-    for (int i = rang_d; i < rang_f + 1; i++) {
+void GetButtonPurposeGame(SDL_Renderer *renderer) {
+    for (int i = 0; i < 72; i++) {
+        if (MouseInRect(buttons_game[i]) == 1) {
+            if (couleur_boutons[i] != 0 && clicked == 0) {
+                clicked = 1;
+                indice_clicked = i;
+            }
+            else if (clicked == 1) {
+                echange_bonbon(i);
+                clicked = 0;
+            }
+        }
     }
-    return 0;
 }
 
 int CheckAllRectMenu() {
