@@ -1,7 +1,7 @@
 #ifndef GAME_H
 #define GAME_H
 
-extern int rang_suppression[12];
+extern int rang_suppression[100];
 
 int SetGameMode(int a);
 void creer_grille(SDL_Renderer* renderer, int gamemode);
