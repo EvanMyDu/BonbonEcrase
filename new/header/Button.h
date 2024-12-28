@@ -1,8 +1,8 @@
 #ifndef BUTTON_H
 #define BUTTON_H
 
-extern SDL_Rect buttons_game[72];
-extern int couleur_boutons[72];
+extern SDL_Rect buttons_game[78];
+extern int couleur_boutons[78];
 extern int largeur_grille;
 extern int hauteur_grille;
 extern int clicked;

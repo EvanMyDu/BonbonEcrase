@@ -11,6 +11,7 @@
 
 int rang_suppression[100];
 static int nombre_consecutif = 0;
+static int last_row[6];
 
 int SetGameMode(int a) {
     return a;
@@ -25,24 +26,24 @@ void creer_grille(SDL_Renderer* renderer, int gamemode) {
         }
     }
     if (gamemode == 2) {
-        for (int i = 0; i < (largeur_grille*hauteur_grille); i++) {
-            CreerBoutonJeu(renderer, (((GetSystemMetrics(SM_CXSCREEN)/(largeur_grille+1))*(i%largeur_grille)) + (GetSystemMetrics(SM_CXSCREEN)/(largeur_grille+1))), (GetSystemMetrics(SM_CYSCREEN)/hauteur_grille+2)*(i/largeur_grille), 50, 50, i);
+        for (int i = largeur_grille; i < (largeur_grille*hauteur_grille) + largeur_grille; i++) {
+            CreerBoutonJeu(renderer, (((GetSystemMetrics(SM_CXSCREEN)/(largeur_grille+1))*(i%largeur_grille)) + (GetSystemMetrics(SM_CXSCREEN)/(largeur_grille+1))), (GetSystemMetrics(SM_CYSCREEN)/hauteur_grille+2)*((i/largeur_grille)-1), 50, 50, i);
         }
-        for (int j = (largeur_grille*hauteur_grille) - 1; j > ((hauteur_grille-3)*largeur_grille) - 1; j--) {
+        for (int j = (largeur_grille*hauteur_grille) + largeur_grille - 1; j > ((hauteur_grille-2)*largeur_grille) - 1; j--) {
             couleur_boutons[j] = choix_couleur();
         }
     }
 }
 
 void remonter_couleur() {
-    for (int i = 0; i < ((largeur_grille*hauteur_grille) - largeur_grille); i++) {
+    for (int i = 0; i < ((largeur_grille*hauteur_grille)); i++) {
         couleur_boutons[i] = couleur_boutons[i + largeur_grille];
         couleur_boutons[i+largeur_grille] = 0;
     }
 }
 
 void ajouter_ligne() {
-    for (int i = ((largeur_grille*hauteur_grille) - largeur_grille); i < (largeur_grille*hauteur_grille); i++) {
+    for (int i = ((largeur_grille*hauteur_grille)); i < (largeur_grille*hauteur_grille) + largeur_grille; i++) {
         couleur_boutons[i] = choix_couleur();
     }
 }
@@ -161,6 +162,28 @@ void tomber_bonbon() {
     }
 }
 
+int check_color_change() {
+    for (int i = 0; i < largeur_grille; i++) {
+        if (couleur_boutons[i] != 0) {
+            return 1;
+        }
+    }
+    return 0;
+}
+
+int end_game(int gamemode) {
+    if (gamemode == 1) {
+        return 0;
+    }
+    if (gamemode == 2) {
+        if (check_color_change() == 1) {
+            return 1;
+        }
+        return 0;
+    }
+    return 0;
+}
+
 void game_loop() {
     time_t start = time(NULL);
     time_t current;
@@ -239,7 +262,7 @@ void game_loop() {
             ActualiserFenetreChoixGrille(renderer);
         }
         if (jeu == 1) { //Si on est dans le jeu
-            ActualiserFenetreJeu(renderer); //Affiche le jeu*
+            ActualiserFenetreJeu(renderer, gamemode); //Affiche le jeu*
             current = time(NULL);
             if (gamemode == 1) {
                 for (int i = 0; i < largeur_grille*hauteur_grille; i++) {
@@ -254,6 +277,10 @@ void game_loop() {
                 if (current - start >= 2) {
                     remonter_couleur();
                     ajouter_ligne();
+                    if (end_game(gamemode) == 1) {
+                        menu = 1;
+                        jeu = 0;
+                    }
                     start = current;
                 }
                 for (int i = 0; i < largeur_grille*hauteur_grille; i++) {

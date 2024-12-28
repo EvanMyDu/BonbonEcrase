@@ -8,10 +8,10 @@
 #include <time.h>
 
 static SDL_Rect buttons_menu[21]; //Définie le tableau avec tout les bouton des menus
-SDL_Rect buttons_game[72]; //Définie le tableau avec tout les bouton des jeux
+SDL_Rect buttons_game[78]; //Définie le tableau avec tout les bouton des jeux
 int largeur_grille;
 int hauteur_grille;
-int couleur_boutons[72];
+int couleur_boutons[78];
 int indice_clicked;
 int clicked = 0;
 
