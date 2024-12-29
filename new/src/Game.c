@@ -11,7 +11,6 @@
 
 int rang_suppression[100];
 static int nombre_consecutif = 0;
-static int last_row[6];
 
 int SetGameMode(int a) {
     return a;
@@ -171,15 +170,92 @@ int check_color_change() {
     return 0;
 }
 
-int end_game(int gamemode) {
-    if (gamemode == 1) {
-        return 0;
+int count_color(int couleur, int last_row_index_start, int last_row_index_end) {
+    int count = 0;
+    for (int i = 0; i < (hauteur_grille*largeur_grille); i++) {
+        if ((i%largeur_grille >= last_row_index_start%largeur_grille) && (i%largeur_grille <= last_row_index_end%largeur_grille)) {
+            if (couleur_boutons[i] == couleur) {
+                count++;
+            }
+        }
     }
-    if (gamemode == 2) {
-        if (check_color_change() == 1) {
-            return 1;
+    return count;
+}
+
+int count_candy_in_col(int last_row_index) {
+    int candy_in_col = 0;
+    while (couleur_boutons[last_row_index] != 0) {
+        candy_in_col++;
+        last_row_index = last_row_index - largeur_grille;
+    }
+    return candy_in_col;
+}
+
+int check_grid() {
+    int tot_rouge = count_color(1, 0, largeur_grille - 1), tot_bleu = count_color(2,  0, largeur_grille - 1), tot_jaune = count_color(4,  0, largeur_grille - 1), tot_vert = count_color(3,  0, largeur_grille - 1);
+    if ((tot_rouge < 4) && (tot_jaune < 4) && (tot_vert < 4) && (tot_bleu < 4)) {
+        return 1;
+    }
+    if(((tot_rouge >= 4) || (tot_jaune >= 4) || (tot_vert >= 4) || (tot_bleu >= 4))) {
+        for (int i = (largeur_grille*(hauteur_grille-1)); i < (largeur_grille*hauteur_grille)-1; i++) {
+            if (couleur_boutons[i] == 0) {
+                int stop = 0;
+                int tot_gauche = 0;
+                int tot_droit = 0;
+                int j = i;
+                while (j != largeur_grille*(hauteur_grille-1)-1) {
+                    tot_gauche = tot_gauche + count_candy_in_col(j);
+                    j = j - 1;
+                }
+                if (tot_gauche >= 4) {
+                    int tot_rouge_gauche = count_color(1, 0, i), tot_bleu_gauche = count_color(2, 0, i), tot_jaune_gauche = count_color(4, 0, i), tot_vert_gauche = count_color(3, 0, i);
+                    printf("tot_rouge_gauche = %d, tot_bleu_gauche = %d, tot_jaune_gauche = %d, tot_vert_gauche = %d \n", tot_rouge_gauche, tot_bleu_gauche, tot_jaune_gauche, tot_vert_gauche);
+                    if ((tot_rouge_gauche < 4) && (tot_jaune_gauche < 4) && (tot_vert_gauche < 4) && (tot_bleu_gauche < 4)) {
+                        stop = 1;
+                    }
+                    if ((tot_rouge_gauche >= 4) || (tot_jaune_gauche >= 4) || (tot_vert_gauche >= 4) || (tot_bleu_gauche >= 4)) {
+                        return 0;
+                    }
+                }
+                else {
+                    stop = 1;
+                }
+                j = i;
+                while (j != largeur_grille*hauteur_grille) {
+                    tot_droit = tot_droit + count_candy_in_col(j);
+                    j = j + 1;
+                }
+                printf("tot_droit = %d, tot_gauche %d \n", tot_droit, tot_gauche);
+                if (tot_droit >= 4) {
+                    int tot_rouge_droit = count_color(1, i, largeur_grille - 1), tot_bleu_droit = count_color(2, i, largeur_grille - 1), tot_jaune_droit = count_color(4, i, largeur_grille - 1), tot_vert_droit = count_color(3, i, largeur_grille - 1);
+                    printf("tot_rouge_droit = %d, tot_bleu_droit = %d, tot_jaune_droit = %d, tot_vert_droit = %d \n", tot_rouge_droit, tot_bleu_droit, tot_jaune_droit, tot_vert_droit);
+                    if ((tot_rouge_droit < 4) && (tot_jaune_droit < 4) && (tot_vert_droit < 4) && (tot_bleu_droit < 4)) {
+                        if (stop == 1) {
+                            return 1;
+                        }
+                    }
+                    if ((tot_rouge_droit >= 4) || (tot_jaune_droit >= 4) || (tot_vert_droit >= 4) || (tot_bleu_droit >= 4)) {
+                        return 0;
+                    }
+                }
+                else {
+                    if (stop == 1) {
+                        return 1;
+                    }
+                }
+            }
         }
         return 0;
+    }
+    return 0;
+}
+
+int end_game(int gamemode) {
+    if (gamemode == 1) {
+        return check_grid();
+    }
+    if (gamemode == 2) {
+        return check_color_change();
     }
     return 0;
 }
@@ -272,9 +348,13 @@ void game_loop() {
                     reinitialiser_tableau(rang_suppression);
                     tomber_bonbon();
                 }
+                if (end_game(gamemode) == 1) {
+                    menu = 1;
+                    jeu = 0;
+                }
             }
             if (gamemode == 2) {
-                if (current - start >= 2) {
+                if (current - start >= 15) {
                     remonter_couleur();
                     ajouter_ligne();
                     if (end_game(gamemode) == 1) {
