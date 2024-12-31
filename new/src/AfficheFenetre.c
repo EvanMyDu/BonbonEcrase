@@ -129,23 +129,16 @@ void ActualiserFenetreJeu(SDL_Renderer *renderer, int gamemode) {
 
 
 void ActualiserFenetreScore(SDL_Renderer *renderer) {
-   SDL_RenderClear(renderer);
-
+    SDL_RenderClear(renderer);
+    int xquitter =GetSystemMetrics(SM_CXSCREEN) - 400, yquitter = 150; //Determine les coordonnées du bouton et de l'image en fonction de la taille de l'écran
     // Charger la police
     TTF_Font *Font = TTF_OpenFont("../police/arial.ttf", 30);
     // Charger le fond d'écran
     SDL_Texture *background = AfficheImage(renderer, "../image/background.png", 0, 0);
-
+    SDL_Texture *quit = AfficheImage(renderer, "../image/quitterbouton.png", xquitter, yquitter);
     // Lire et trier les scores
     Joueur joueurs[100];
     int nb_joueurs = lire_score(100, joueurs);
-
-    if (nb_joueurs == 0) {
-        printf("Aucun score à afficher.\n");
-        SDL_DestroyTexture(background);
-        TTF_CloseFont(Font);
-        return;
-    }
 
     qsort(joueurs, nb_joueurs, sizeof(Joueur), comparer_scores);
 
@@ -187,11 +180,12 @@ void ActualiserFenetreScore(SDL_Renderer *renderer) {
         // Passer à la ligne suivante
         TextRect.y += 50; // Ajuster l'espacement vertical entre les lignes
     }
-
+    CreerBoutonMenu(renderer, xquitter, yquitter, 294, yquitter, 20);
     // Afficher les éléments rendus
     SDL_RenderPresent(renderer);
 
     // Libérer les ressources
     SDL_DestroyTexture(background);
+    SDL_DestroyTexture(quit);
     TTF_CloseFont(Font);
 }

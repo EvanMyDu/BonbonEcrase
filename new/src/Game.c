@@ -120,15 +120,18 @@ void check_bonbon_identiques(int indice_echange) {
     check_bonbon_alentours(indice_echange);
 }
 
-void supprimer_bonbon(int indice_echange) {
+int supprimer_bonbon(int indice_echange, int consecutif) {
     if (nombre_consecutif >= 4) {
         for (int i = 0; i < nombre_consecutif; i++) {
             couleur_boutons[rang_suppression[i]] = 0;
         }
+        donner_points(nombre_consecutif, consecutif);
         nombre_consecutif = 0;
+        return consecutif + 1;
     }
     else {
         nombre_consecutif = 0;
+        return consecutif;
     }
 }
 
@@ -209,7 +212,6 @@ int check_grid() {
                 }
                 if (tot_gauche >= 4) {
                     int tot_rouge_gauche = count_color(1, 0, i), tot_bleu_gauche = count_color(2, 0, i), tot_jaune_gauche = count_color(4, 0, i), tot_vert_gauche = count_color(3, 0, i);
-                    printf("tot_rouge_gauche = %d, tot_bleu_gauche = %d, tot_jaune_gauche = %d, tot_vert_gauche = %d \n", tot_rouge_gauche, tot_bleu_gauche, tot_jaune_gauche, tot_vert_gauche);
                     if ((tot_rouge_gauche < 4) && (tot_jaune_gauche < 4) && (tot_vert_gauche < 4) && (tot_bleu_gauche < 4)) {
                         stop = 1;
                     }
@@ -225,10 +227,8 @@ int check_grid() {
                     tot_droit = tot_droit + count_candy_in_col(j);
                     j = j + 1;
                 }
-                printf("tot_droit = %d, tot_gauche %d \n", tot_droit, tot_gauche);
                 if (tot_droit >= 4) {
                     int tot_rouge_droit = count_color(1, i, largeur_grille - 1), tot_bleu_droit = count_color(2, i, largeur_grille - 1), tot_jaune_droit = count_color(4, i, largeur_grille - 1), tot_vert_droit = count_color(3, i, largeur_grille - 1);
-                    printf("tot_rouge_droit = %d, tot_bleu_droit = %d, tot_jaune_droit = %d, tot_vert_droit = %d \n", tot_rouge_droit, tot_bleu_droit, tot_jaune_droit, tot_vert_droit);
                     if ((tot_rouge_droit < 4) && (tot_jaune_droit < 4) && (tot_vert_droit < 4) && (tot_bleu_droit < 4)) {
                         if (stop == 1) {
                             return 1;
@@ -261,6 +261,9 @@ int end_game(int gamemode) {
 }
 
 void game_loop() {
+    char nom[50];
+    printf("Entrer votre nom \n");
+    scanf("%s", &nom);
     time_t start = time(NULL);
     time_t current;
     SDL_Init(SDL_INIT_EVERYTHING); //Initialise la bibliotheque SDL
@@ -270,15 +273,6 @@ void game_loop() {
     int jeu = 0; //Le jeu vaut 0 donc FALSE, nous ne somme donc pas en jeu
     int gamemode = 0; //Le gamemode vaut 0 donc nous sommes pas en gamemode
     SDL_bool run = SDL_TRUE; //Tant que ce booléen est TRUE, la boucle de jeu ne s'arrête pas
-    sauvegarder_score(2500, "Evan");
-    sauvegarder_score(200, "Alice"); // Exemple : Ajouter un score
-    sauvegarder_score(150, "Bob");   // Exemple : Ajouter un autre score
-    sauvegarder_score(300, "Charlie");
-    sauvegarder_score(100, "Diane");
-
-
-
-
     while(run) {
         SDL_Event event;
         while (SDL_PollEvent(&event)) {
@@ -302,8 +296,8 @@ void game_loop() {
                 }
             }
             if (menu == 4) {
-                if ((event.type == SDL_MOUSEBUTTONDOWN) && (CheckAllRectGame() == 1)) {
-                    menu = GetButtonPurposeMenu(renderer, 21, 21, menu);
+                if ((event.type == SDL_MOUSEBUTTONDOWN) && (CheckAllRectMenu() == 1)) {
+                    menu = GetButtonPurposeMenu(renderer, 20, 20, menu);
                 }
             }
             if (menu == 2) {
@@ -341,16 +335,18 @@ void game_loop() {
             ActualiserFenetreJeu(renderer, gamemode); //Affiche le jeu*
             current = time(NULL);
             if (gamemode == 1) {
+                int a = 0;
                 for (int i = 0; i < largeur_grille*hauteur_grille; i++) {
                     reinitialiser_tableau(rang_suppression);
                     check_bonbon_identiques(i);
-                    supprimer_bonbon(i);
+                    a = supprimer_bonbon(i, a);
                     reinitialiser_tableau(rang_suppression);
                     tomber_bonbon();
                 }
                 if (end_game(gamemode) == 1) {
                     menu = 1;
                     jeu = 0;
+                    sauvegarder_score(nom);
                 }
             }
             if (gamemode == 2) {
@@ -360,13 +356,15 @@ void game_loop() {
                     if (end_game(gamemode) == 1) {
                         menu = 1;
                         jeu = 0;
+                        sauvegarder_score(nom);
                     }
                     start = current;
                 }
+                int a = 0;
                 for (int i = 0; i < largeur_grille*hauteur_grille; i++) {
                     reinitialiser_tableau(rang_suppression);
                     check_bonbon_identiques(i);
-                    supprimer_bonbon(i);
+                    a = supprimer_bonbon(i, a);
                     reinitialiser_tableau(rang_suppression);
                     tomber_bonbon();
                 }

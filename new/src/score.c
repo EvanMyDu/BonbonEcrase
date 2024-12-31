@@ -3,9 +3,9 @@
 #include <stdio.h>
 #include <SDL_ttf.h>
 
+static int score = 0;
 
-
-void sauvegarder_score(int score, char nom[]) {
+void sauvegarder_score(char nom[]) {
 
     FILE *sauvegarde_points = fopen("../texte/sauvegarde.txt", "a"); //On ouvre le fichier texte en mode ajout
 
@@ -16,6 +16,11 @@ void sauvegarder_score(int score, char nom[]) {
     fprintf(sauvegarde_points, " %s  %d\n", nom, score); //On écrit ce score dans le fichier sauvegarde.txt
 
     fclose(sauvegarde_points);//On ferme le fichier
+    score = 0;
+}
+
+void donner_points(int longueur_chaine, int consecutif) {
+    score = score + ((consecutif + 1)*((longueur_chaine-1)*(longueur_chaine-1)));
 }
 
 int lire_score(int taille_max, Joueur joueur[]) {

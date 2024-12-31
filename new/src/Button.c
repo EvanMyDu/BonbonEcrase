@@ -66,12 +66,12 @@ int GetButtonPurposeMenu(SDL_Renderer *renderer, int rang_d, int rang_f, int sta
             if (i == 4) {
                 return SetGameMode(1); //Set le gamemode en puzzle
             }
-            if (i>= 5 && i<=20) {
+            if (i>= 5 && i<=19) {
                 hauteur_grille = ((i-5)/3)+8;
                 largeur_grille = ((i-5)%3)+4;
                 return 3;
             }
-            if (i == 21){
+            if (i == 20){
                 return 1;
             }
         }
@@ -96,7 +96,7 @@ void GetButtonPurposeGame(SDL_Renderer *renderer) {
 }
 
 int CheckAllRectMenu() {
-    for (int i = 0; i < 20; i++) {
+    for (int i = 0; i < 21; i++) {
         if (MouseInRect(buttons_menu[i]) == 1) { //Vérifie pour chaque rectangle du menu si la souris est dans un rectangle
             return 1; //return TRUE
         }
