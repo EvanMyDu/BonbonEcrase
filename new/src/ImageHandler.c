@@ -9,7 +9,7 @@ SDL_Texture* AfficheImage (SDL_Renderer *renderer, char *path, int x, int y) {
     IMG_Init(IMG_INIT_JPG); //Charge la bibliothèque SDL_image pour pouvoir afficher des .jpg
     IMG_Init(IMG_INIT_PNG); //Charge la bibliothèque SDL_image pour pouvoir afficher des .png
     SDL_Texture *img = IMG_LoadTexture(renderer,path); //Charge une image et la transforme en texture
-    SDL_Rect rect;
+    SDL_Rect rect; //Creer un SDL_Rect, rectangle qui contiendra l'image/la texture
     SDL_QueryTexture(img, NULL, NULL, &rect.w, &rect.h); //Associe la texture à un rectangle pour pouvoir la charger dans le renderer
     rect.x = x; //coordonnées x du rectangle
     rect.y = y; //coordonnées y du rectangle

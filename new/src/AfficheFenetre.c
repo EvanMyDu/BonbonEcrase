@@ -37,12 +37,13 @@ void ActualiserFenetreChoixMode(SDL_Renderer *renderer) {
     int xrush = GetSystemMetrics(SM_CXSCREEN)/2-147, yrush = GetSystemMetrics(SM_CYSCREEN)/2 +50; //Determine les coordonnées du bouton et de l'image en fonction de la taille de l'écran
     int xpuzzle =GetSystemMetrics(SM_CXSCREEN)/2-147, ypuzzle = GetSystemMetrics(SM_CYSCREEN)/2 +200;  //Determine les coordonnées du bouton et de l'image en fonction de la taille de l'écran
     int xtitremode = GetSystemMetrics(SM_CXSCREEN)/2-550, ytitremode = 50; //Determine les coordonnées du bouton et de l'image en fonction de la taille de l'écran
-    SDL_RenderClear(renderer);
+    SDL_RenderClear(renderer); //On nettoie le renderer
+    //On charge le fond d'écran
     SDL_Texture *background = AfficheImage(renderer, "../image/background.png",0 ,0), *boutonrush = AfficheImage(renderer, "../image/rushbutton.png", xrush, yrush), *boutonpuzzle = AfficheImage(renderer,"../image/puzzlebuttton.png", xpuzzle, ypuzzle), *choixtitre = AfficheImage(renderer,"../image/modedejeu.png", xtitremode, ytitremode);
-    CreerBoutonMenu(renderer, xrush, yrush, 294, 84, 3);
-    CreerBoutonMenu(renderer, xpuzzle, ypuzzle,294, 84, 4);
-    SDL_RenderPresent(renderer);
-    SDL_DestroyTexture(background);
+    CreerBoutonMenu(renderer, xrush, yrush, 294, 84, 3); //Creer un bouton pour pouvoir choisir le mode rush
+    CreerBoutonMenu(renderer, xpuzzle, ypuzzle,294, 84, 4); //Creer un bouton pour pouvoir choisir le mode puzzle
+    SDL_RenderPresent(renderer); //Affiche le renderer
+    SDL_DestroyTexture(background); //Detruit les différentes textures pour libérer de la mémoire
     SDL_DestroyTexture(boutonrush);
     SDL_DestroyTexture(choixtitre);
     SDL_DestroyTexture(boutonpuzzle);
@@ -52,23 +53,23 @@ void ActualiserFenetreChoixGrille(SDL_Renderer *renderer) {
     char str[30]; // Taille suffisante pour contenir "../image/XX.png"
     int a = 110, b = 90;// Position initiale des boutons
     SDL_RenderClear(renderer); // Enlève les éléments affichés à l'instant t
-    SDL_Texture *background = AfficheImage(renderer, "../image/background.png", 0, 0);
+    SDL_Texture *background = AfficheImage(renderer, "../image/background.png", 0, 0); //Affiche le fond d'écran
 
-    for (int i = 0; i < 15; i++) {
-        sprintf(str, "../image/%d.png", i);
-        if (i % 5 == 0 && i != 0) {
+    for (int i = 0; i < 15; i++) { //Pour le nombre de grille possible
+        sprintf(str, "../image/%d.png", i); //Récupère le nom du fichier à charger en fonction de l'indice i de la boucle for
+        if (i % 5 == 0 && i != 0) { //Cette partie gère les coordonnées où afficher les images
             a = 110;
             b += 300;
         } else if (i % 5 != 0) {
             a += 340;
         }
-        SDL_Texture *grille = AfficheImage(renderer, str, a, b);
-        CreerBoutonMenu(renderer, a, b, 294, 84, i+5);
-        SDL_DestroyTexture(grille);
+        SDL_Texture *grille = AfficheImage(renderer, str, a, b); //On charge l'image avec la taille du bouton dessus
+        CreerBoutonMenu(renderer, a, b, 294, 84, i+5); //On creer un bouton au même coordonnées de l'image
+        SDL_DestroyTexture(grille); //Libère la mémoire de la texture pour chaque bouton de choix de grille
     }
 
-    SDL_RenderPresent(renderer);
-    SDL_DestroyTexture(background);
+    SDL_RenderPresent(renderer); //Affiche le renderer
+    SDL_DestroyTexture(background); //Libère la mémoire de la texture du fond d'écran
 }
 
 
@@ -76,55 +77,47 @@ void ActualiserFenetreJeu(SDL_Renderer *renderer, int gamemode) {
     SDL_RenderClear(renderer); // Enlève les éléments affichés à l'instant t
     SDL_Texture *background = AfficheImage(renderer, "../image/background.png", 0, 0);
     if (gamemode == 1) {
-        for (int i = 0; i < (largeur_grille*hauteur_grille); i++) {
+        for (int i = 0; i < (largeur_grille*hauteur_grille); i++) { //Affiche tout les bonbons en fonction de leur couleur
             if (couleur_boutons[i] == 1) {
-                SDL_Texture *bonbon = AfficheImage(renderer, "../image/rouge.png", buttons_game[i].x, buttons_game[i].y);
-                //printf("x = %d, y = %d, i = %d \n", buttons_game[i].x, buttons_game[i].y, i);
-                SDL_DestroyTexture(bonbon);
+                SDL_Texture *bonbon = AfficheImage(renderer, "../image/rouge.png", buttons_game[i].x, buttons_game[i].y); //Charge l'image du bonbon
+                SDL_DestroyTexture(bonbon); //Libère la mémoire
             }
             if (couleur_boutons[i] == 2) {
-                SDL_Texture *bonbon = AfficheImage(renderer, "../image/bleu.png", buttons_game[i].x, buttons_game[i].y);
-                //printf("x = %d, y = %d, i = %d \n", buttons_game[i].x, buttons_game[i].y, i);
-                SDL_DestroyTexture(bonbon);
+                SDL_Texture *bonbon = AfficheImage(renderer, "../image/bleu.png", buttons_game[i].x, buttons_game[i].y); //Charge l'image du bonbon
+                SDL_DestroyTexture(bonbon); //Libère la mémoire
             }
             if (couleur_boutons[i] == 3) {
-                SDL_Texture *bonbon = AfficheImage(renderer, "../image/vert.png", buttons_game[i].x, buttons_game[i].y);
-                //printf("x = %d, y = %d, i = %d \n", buttons_game[i].x, buttons_game[i].y, i);
-                SDL_DestroyTexture(bonbon);
+                SDL_Texture *bonbon = AfficheImage(renderer, "../image/vert.png", buttons_game[i].x, buttons_game[i].y); //Charge l'image du bonbon
+                SDL_DestroyTexture(bonbon); //Libère la mémoire
             }
             if (couleur_boutons[i] == 4) {
-                SDL_Texture *bonbon = AfficheImage(renderer, "../image/jaune.png", buttons_game[i].x, buttons_game[i].y);
-                //printf("x = %d, y = %d, i = %d \n", buttons_game[i].x, buttons_game[i].y, i);
-                SDL_DestroyTexture(bonbon);
+                SDL_Texture *bonbon = AfficheImage(renderer, "../image/jaune.png", buttons_game[i].x, buttons_game[i].y); //Charge l'image du bonbon
+                SDL_DestroyTexture(bonbon); //Libère la mémoire
             }
         }
     }
     if (gamemode == 2) {
-        for (int i = 0; i < ((largeur_grille*hauteur_grille) + largeur_grille); i++) {
+        for (int i = 0; i < ((largeur_grille*hauteur_grille) + largeur_grille); i++) { //Affiche tout les bonbons en fonction de leur couleur
             if (couleur_boutons[i] == 1) {
-                SDL_Texture *bonbon = AfficheImage(renderer, "../image/rouge.png", buttons_game[i].x, buttons_game[i].y);
-                //printf("x = %d, y = %d, i = %d \n", buttons_game[i].x, buttons_game[i].y, i);
-                SDL_DestroyTexture(bonbon);
+                SDL_Texture *bonbon = AfficheImage(renderer, "../image/rouge.png", buttons_game[i].x, buttons_game[i].y); //Charge l'image du bonbon
+                SDL_DestroyTexture(bonbon); //Libère la mémoire
             }
             if (couleur_boutons[i] == 2) {
-                SDL_Texture *bonbon = AfficheImage(renderer, "../image/bleu.png", buttons_game[i].x, buttons_game[i].y);
-                //printf("x = %d, y = %d, i = %d \n", buttons_game[i].x, buttons_game[i].y, i);
-                SDL_DestroyTexture(bonbon);
+                SDL_Texture *bonbon = AfficheImage(renderer, "../image/bleu.png", buttons_game[i].x, buttons_game[i].y); //Charge l'image du bonbon
+                SDL_DestroyTexture(bonbon); //Libère la mémoire
             }
             if (couleur_boutons[i] == 3) {
-                SDL_Texture *bonbon = AfficheImage(renderer, "../image/vert.png", buttons_game[i].x, buttons_game[i].y);
-                //printf("x = %d, y = %d, i = %d \n", buttons_game[i].x, buttons_game[i].y, i);
-                SDL_DestroyTexture(bonbon);
+                SDL_Texture *bonbon = AfficheImage(renderer, "../image/vert.png", buttons_game[i].x, buttons_game[i].y); //Charge l'image du bonbon
+                SDL_DestroyTexture(bonbon); //Libère la mémoire
             }
             if (couleur_boutons[i] == 4) {
-                SDL_Texture *bonbon = AfficheImage(renderer, "../image/jaune.png", buttons_game[i].x, buttons_game[i].y);
-                //printf("x = %d, y = %d, i = %d \n", buttons_game[i].x, buttons_game[i].y, i);
-                SDL_DestroyTexture(bonbon);
+                SDL_Texture *bonbon = AfficheImage(renderer, "../image/jaune.png", buttons_game[i].x, buttons_game[i].y); //Charge l'image du bonbon
+                SDL_DestroyTexture(bonbon); //Libère la mémoire
             }
         }
     }
-    SDL_RenderPresent(renderer);
-    SDL_DestroyTexture(background);
+    SDL_RenderPresent(renderer); //Affiche le renderer
+    SDL_DestroyTexture(background); //Libère la mémoire
 }
 
 
@@ -164,7 +157,7 @@ void ActualiserFenetreScore(SDL_Renderer *renderer) {
 
 
         SDL_Texture *TextTexture = SDL_CreateTextureFromSurface(renderer, TextSurface);
- 
+
 
         // Ajuster la taille du rectangle à la taille du texte
         TextRect.w = TextSurface->w;
