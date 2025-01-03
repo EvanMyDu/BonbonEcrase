@@ -122,63 +122,16 @@ void ActualiserFenetreJeu(SDL_Renderer *renderer, int gamemode) {
 
 
 void ActualiserFenetreScore(SDL_Renderer *renderer) {
+    TTF_Font *Font = TTF_OpenFont("../police/arial.ttf", 30);//Je charge la police d'ecriture
     SDL_RenderClear(renderer);
-    int xquitter =GetSystemMetrics(SM_CXSCREEN) - 400, yquitter = 150; //Determine les coordonnées du bouton et de l'image en fonction de la taille de l'écran
-    // Charger la police
-    TTF_Font *Font = TTF_OpenFont("../police/arial.ttf", 30);
-    // Charger le fond d'écran
-    SDL_Texture *background = AfficheImage(renderer, "../image/background.png", 0, 0);
-    SDL_Texture *quit = AfficheImage(renderer, "../image/quitterbouton.png", xquitter, yquitter);
-    // Lire et trier les scores
-    Joueur joueurs[100];
-    int nb_joueurs = lire_score(100, joueurs);
-
-    qsort(joueurs, nb_joueurs, sizeof(Joueur), comparer_scores);
-
-    // Limiter au top 10
-    if (nb_joueurs > 10) {
-        nb_joueurs = 10;
-    }
-
-    // Afficher les scores triés
-    SDL_Color couleurBlanche = {255, 255, 255, 255};
-    SDL_Rect TextRect;
-    TextRect.x = 100; // Position de départ X
-    TextRect.y = 100; // Position de départ Y
-    TextRect.w = 0;   // Largeur sera ajustée automatiquement
-    TextRect.h = 0;   // Hauteur sera ajustée automatiquement
-
-    for (int i = 0; i < nb_joueurs; i++) {
-        // Créer le texte pour chaque joueur
-        char scoreTexte[100];
-        snprintf(scoreTexte, sizeof(scoreTexte), "%d. %s : %d", i + 1, joueurs[i].nom, joueurs[i].score);
-
-        SDL_Surface *TextSurface = TTF_RenderText_Blended_Wrapped(Font, scoreTexte, couleurBlanche, 800);
-
-
-        SDL_Texture *TextTexture = SDL_CreateTextureFromSurface(renderer, TextSurface);
-
-
-        // Ajuster la taille du rectangle à la taille du texte
-        TextRect.w = TextSurface->w;
-        TextRect.h = TextSurface->h;
-
-        // Rendre la texture dans le renderer
-        SDL_RenderCopy(renderer, TextTexture, NULL, &TextRect);
-
-        // Libérer les ressources pour ce texte
-        SDL_FreeSurface(TextSurface);
-        SDL_DestroyTexture(TextTexture);
-
-        // Passer à la ligne suivante
-        TextRect.y += 50; // Ajuster l'espacement vertical entre les lignes
-    }
-    CreerBoutonMenu(renderer, xquitter, yquitter, 294, yquitter, 20);
+    SDL_Texture *background = AfficheImage(renderer, "../image/background.png", 0, 0), *boutonretour = AfficheImage(renderer, "../image/quitterbouton.png", 1000, 700); //Charge le fond, Bouton quitter
+    affichescore(renderer);// j'appelle la fonction affiche score
+    CreerBoutonMenu(renderer, 1000,700, 294,84, 20);// On créé un bouton pour quitter le menu score
     // Afficher les éléments rendus
     SDL_RenderPresent(renderer);
 
     // Libérer les ressources
     SDL_DestroyTexture(background);
-    SDL_DestroyTexture(quit);
-    TTF_CloseFont(Font);
+    TTF_CloseFont(Font);//libere de la mémoire en fermant le ttf font
+    SDL_DestroyTexture(boutonretour);
 }
